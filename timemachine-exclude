@@ -1,0 +1,23 @@
+#!/bin/bash
+#
+# Simple excample script to exclude specific folders from being
+# backed up using Time Machine on Mac OS X
+# <armin@mutt.email>
+
+exec >$HOME/.timemachine-exclude.log 2>&1
+
+msg () {
+	echo -- "[timemachine-exclude] -- $@ --"
+}
+
+excludes=($HOME/Movies $HOME/Music)
+
+for i in "${excludes[@]}"; do
+	msg "Adding exclude for: $i"
+	sudo tmutil removeexclusion $i
+	sudo tmutil addexclusion -p $i
+done
+
+
+
+

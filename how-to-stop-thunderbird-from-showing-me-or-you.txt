@@ -1,0 +1,4 @@
+Just open up the Thunderbird Preferences dialog in the Edit menu (it may be in the Tools menu on Windows), go to the Advanced section, then click the 'Config Editor' button that appears at the bottom of the General tab. Find the setting called mail. showCondensedAddresses by typing part of this name in the search box, then set showCondensedAddresses to boolean false.
+
+Tadaaaaa!
+

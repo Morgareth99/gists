@@ -1,0 +1,6 @@
+#!/bin/sh
+
+# test-drive an .iso for x86_64 via qemu/kvm
+
+qemu-system-x86_64 -enable-kvm -drive media=cdrom,if=virtio,file="$1"
+

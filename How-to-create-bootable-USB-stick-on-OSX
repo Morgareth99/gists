@@ -1,0 +1,67 @@
+How-To: create bootable USB-stick from ISO image:
+=================================================
+
+
+1. Download ISO image file:
+   wget -o ~/Desktop/mini.iso http://ftp.nl.debian.org/debian/dists/wheezy/main/installer-amd64/current/images/netboot/mini.iso
+
+
+2. Convert ISO file to DMG format using hdiutil:
+   hdiutil convert -format UDRW -o Desktop/mini.img Desktop/mini.iso
+
+Output should look as follows:
+
+Reading Master Boot Record (MBR : 0)…
+Reading ISOIMAGE                         (Apple_ISO : 1)…
+...................................................................................
+Reading  (Apple_Free : 2)…
+Reading  (DOS_FAT_12 : 3)…
+...................................................................................
+Elapsed Time:  46.475ms
+Speed: 494.9Mbytes/sec
+Savings: 0.0%
+created: /Users/armin/Desktop/mini.img.dmg
+
+
+3. Determine what disk-Device our USB stick is using diskutil:
+   diskutil list
+
+Output should look as follows:
+
+/dev/disk0
+   #:                       TYPE NAME                    SIZE       IDENTIFIER
+   0:      GUID_partition_scheme                        *251.0 GB   disk0
+   1:                        EFI EFI                     209.7 MB   disk0s1
+   2:                  Apple_HFS Macintosh HD            250.1 GB   disk0s2
+   3:                 Apple_Boot Recovery HD             650.0 MB   disk0s3
+/dev/disk1
+   #:                       TYPE NAME                    SIZE       IDENTIFIER
+   0:     FDisk_partition_scheme                        *4.1 GB     disk1
+   1:                 DOS_FAT_32 NO NAME                 4.1 GB     disk1s1
+
+4. Unmount USB stick using unmountDisk:
+   diskutil unmountDisk /dev/disk1
+
+Output should look as follows:
+
+Unmount of all volumes on disk1 was successful
+
+5. Use dd to transfer the DMG image to the USB stick:
+   sudo dd if=Desktop/mini.img.dmg of=/dev/disk1 bs=1m
+
+Output should look as follows:
+
+Password:
+23+0 records in
+23+0 records out
+24117248 bytes transferred in 28.726522 secs (839546 bytes/sec)
+
+6. Eject USB disk drive using diskutil:
+   diskutil eject /dev/disk1
+
+Output should look as follows:
+
+Disk /dev/disk1 ejected
+
+7. Happy installing!
+

@@ -1,0 +1,5 @@
+If you're using a GTK3 build (uses vte3), you can put this in ~/.config/gtk-3.0/gtk.css:
+
+VteTerminal, vte-terminal {
+    padding: 16px;
+}

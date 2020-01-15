@@ -1,0 +1,8 @@
+Swap Win/Cmd and Alt
+
+Finally we need to switch the left Win and Alt keys to match the Mac layout where the Win or Command keys are right next to the spacebar. Enter the programming mode by pressing FN + right Ctrl:
+
+    Press Alt then Win then PN to set the Command key.
+    Press Win then Alt then PN to set the Option key.
+
+

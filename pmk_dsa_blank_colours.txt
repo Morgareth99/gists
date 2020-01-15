@@ -1,0 +1,144 @@
+<h2>List of actually available (on pimpmykeyboard.com, that is) colour codes for DSA blank standard keycaps, for colours that match the signature plastics PBT colour codes.</h2>
+
+<table>
+<tr>
+<td> BLUE (BCT) BCT rgb(0,117,173)</th>
+<td style="background-color: rgb(0,117,173)"> BLUE (BCT) BCT rgb(0,117,173)</td>
+</tr>
+<tr>
+<td> BLUE (BDJ) BDJ rgb(39,144,194)</th>
+<td style="background-color: rgb(39,144,194)"> BLUE (BDJ) BDJ rgb(39,144,194)</td>
+</tr>
+<tr>
+<td> BLUE (BFE) BFE rgb(149,191,232)</th>
+<td style="background-color: rgb(149,191,232)"> BLUE (BFE) BFE rgb(149,191,232)</td>
+</tr>
+<tr>
+<td> BLUE (BFV) BFV rgb(93,205,227)</th>
+<td style="background-color: rgb(93,205,227)"> BLUE (BFV) BFV rgb(93,205,227)</td>
+</tr>
+<tr>
+<td> BLUE (BFW) BFW rgb(52,164,185)</th>
+<td style="background-color: rgb(52,164,185)"> BLUE (BFW) BFW rgb(52,164,185)</td>
+</tr>
+<tr>
+<td> GRAY (GA) GAH rgb(129,129,126)</th>
+<td style="background-color: rgb(129,129,126)"> GRAY (GA) GAH rgb(129,129,126)</td>
+</tr>
+<tr>
+<td> GRAY (GB) BCT rgb(0,117,173)</th>
+<td style="background-color: rgb(0,117,173)"> GRAY (GB) BCT rgb(0,117,173)</td>
+</tr>
+<tr>
+<td> GRAY (GDE) GDE rgb(144,149,150)</th>
+<td style="background-color: rgb(144,149,150)"> GRAY (GDE) GDE rgb(144,149,150)</td>
+</tr>
+<tr>
+<td> GRAY (GE) GEC rgb(146,147,144)</th>
+<td style="background-color: rgb(146,147,144)"> GRAY (GE) GEC rgb(146,147,144)</td>
+</tr>
+<tr>
+<td> GRAY (GEC) GEC rgb(146,147,144)</th>
+<td style="background-color: rgb(146,147,144)"> GRAY (GEC) GEC rgb(146,147,144)</td>
+</tr>
+<tr>
+<td> GRAY (GHO) GHO rgb(175,176,174)</th>
+<td style="background-color: rgb(175,176,174)"> GRAY (GHO) GHO rgb(175,176,174)</td>
+</tr>
+<tr>
+<td> GRAY (GMC) GMC rgb(171,172,171)</th>
+<td style="background-color: rgb(171,172,171)"> GRAY (GMC) GMC rgb(171,172,171)</td>
+</tr>
+<tr>
+<td> GRAY (GQN) GQN rgb(195,185,170)</th>
+<td style="background-color: rgb(195,185,170)"> GRAY (GQN) GQN rgb(195,185,170)</td>
+</tr>
+<tr>
+<td> GRAY (GQT) GQT rgb(82,85,84)</th>
+<td style="background-color: rgb(82,85,84)"> GRAY (GQT) GQT rgb(82,85,84)</td>
+</tr>
+<tr>
+<td> GRAY (GSF) GSF rgb(45,50,56)</th>
+<td style="background-color: rgb(45,50,56)"> GRAY (GSF) GSF rgb(45,50,56)</td>
+</tr>
+<tr>
+<td> GRAY (GSJ) GSJ rgb(191,192,192)</th>
+<td style="background-color: rgb(191,192,192)"> GRAY (GSJ) GSJ rgb(191,192,192)</td>
+</tr>
+<tr>
+<td> GRAY (GSK) GSK rgb(162,162,166)</th>
+<td style="background-color: rgb(162,162,166)"> GRAY (GSK) GSK rgb(162,162,166)</td>
+</tr>
+<tr>
+<td> ORANGE (OAX) OAX rgb(255,121,33)</th>
+<td style="background-color: rgb(255,121,33)"> ORANGE (OAX) OAX rgb(255,121,33)</td>
+</tr>
+<tr>
+<td> ORANGE (OAZ) OAZ rgb(241,111,59)</th>
+<td style="background-color: rgb(241,111,59)"> ORANGE (OAZ) OAZ rgb(241,111,59)</td>
+</tr>
+<tr>
+<td> RED (RAR) RAR rgb(203,47,42)</th>
+<td style="background-color: rgb(203,47,42)"> RED (RAR) RAR rgb(203,47,42)</td>
+</tr>
+<tr>
+<td> RED (RBD) RBD rgb(211,25,41)</th>
+<td style="background-color: rgb(211,25,41)"> RED (RBD) RBD rgb(211,25,41)</td>
+</tr>
+<tr>
+<td> RED (RBH) RBH rgb(184,27,36)</th>
+<td style="background-color: rgb(184,27,36)"> RED (RBH) RBH rgb(184,27,36)</td>
+</tr>
+<tr>
+<td> PINK (RCA) RCA rgb(210,144,180)</th>
+<td style="background-color: rgb(210,144,180)"> PINK (RCA) RCA rgb(210,144,180)</td>
+</tr>
+<tr>
+<td> PURPLE (RCB) RCB rgb(133,126,177)</th>
+<td style="background-color: rgb(133,126,177)"> PURPLE (RCB) RCB rgb(133,126,177)</td>
+</tr>
+<tr>
+<td> PURPLE (RCE) RCE rgb(108,102,128)</th>
+<td style="background-color: rgb(108,102,128)"> PURPLE (RCE) RCE rgb(108,102,128)</td>
+</tr>
+<tr>
+<td> RED (RCF) RCF rgb(199,72,82)</th>
+<td style="background-color: rgb(199,72,82)"> RED (RCF) RCF rgb(199,72,82)</td>
+</tr>
+<tr>
+<td> PINK (RCG) RCG rgb(255,178,210)</th>
+<td style="background-color: rgb(255,178,210)"> PINK (RCG) RCG rgb(255,178,210)</td>
+</tr>
+<tr>
+<td> GREEN (VAZ) VAZ rgb(0,144,87)</th>
+<td style="background-color: rgb(0,144,87)"> GREEN (VAZ) VAZ rgb(0,144,87)</td>
+</tr>
+<tr>
+<td> GREEN (VCC) VCC rgb(69,184,102)</th>
+<td style="background-color: rgb(69,184,102)"> GREEN (VCC) VCC rgb(69,184,102)</td>
+</tr>
+<tr>
+<td> GREEN (VCT) VCT rgb(11,171,74)</th>
+<td style="background-color: rgb(11,171,74)"> GREEN (VCT) VCT rgb(11,171,74)</td>
+</tr>
+<tr>
+<td> WHITE (WA) WAN rgb(232,231,227)</th>
+<td style="background-color: rgb(232,231,227)"> WHITE (WA) WAN rgb(232,231,227)</td>
+</tr>
+<tr>
+<td> WHITE (WCX) WCX rgb(229,219,202)</th>
+<td style="background-color: rgb(229,219,202)"> WHITE (WCX) WCX rgb(229,219,202)</td>
+</tr>
+<tr>
+<td> WHITE (WFJ) WFJ rgb(217,218,224)</th>
+<td style="background-color: rgb(217,218,224)"> WHITE (WFJ) WFJ rgb(217,218,224)</td>
+</tr>
+<tr>
+<td> YELLOW (YAM) YAM rgb(255,209,0)</th>
+<td style="background-color: rgb(255,209,0)"> YELLOW (YAM) YAM rgb(255,209,0)</td>
+</tr>
+<tr>
+<td> YELLOW (YR) YR rgb(255,193,0)</th>
+<td style="background-color: rgb(255,193,0)"> YELLOW (YR) YR rgb(255,193,0)</td>
+</tr>
+</table>

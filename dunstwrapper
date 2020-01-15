@@ -1,0 +1,32 @@
+#!/bin/bash
+
+# dunst starter script - <armin@mutt.email>
+
+if pidof dunst >/dev/null; then
+	running=1
+else
+	running=0
+fi
+
+start () {
+	echo "dunst not running, starting..."
+	dunst &
+	echo "done."
+	echo "PID of dunst is: $(pidof dunst)"
+  # start dunst
+}
+
+stop () {
+	echo "Killing dunst..."
+	pkill -e -x dunst
+	echo "done."
+  # stop dunst
+}
+
+if [[ "$running" -eq 0 ]]; then
+  start
+else
+  stop
+fi
+
+

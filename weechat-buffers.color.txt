@@ -1,0 +1,41 @@
+  weechat [bar] (weechat.conf)
+  weechat   weechat.bar.buffers.color_bg = default
+  weechat   weechat.bar.buffers.color_delim = 240
+  weechat   weechat.bar.buffers.color_fg = default
+  weechat
+  weechat [color] (buffers.conf)
+  weechat   buffers.color.current_bg = 0  (default: red)
+  weechat   buffers.color.current_fg = 252  (default: lightcyan)
+  weechat   buffers.color.default_bg = default
+  weechat   buffers.color.default_fg = 244  (default: default)
+  weechat   buffers.color.hotlist_highlight_bg = default
+  weechat   buffers.color.hotlist_highlight_fg = lightred  (default: magenta)
+  weechat   buffers.color.hotlist_low_bg = default
+  weechat   buffers.color.hotlist_low_fg = 246  (default: white)
+  weechat   buffers.color.hotlist_message_bg = default
+  weechat   buffers.color.hotlist_message_fg = 249  (default: yellow)
+  weechat   buffers.color.hotlist_private_bg = default
+  weechat   buffers.color.hotlist_private_fg = lightgreen
+  weechat   buffers.color.none_channel_bg = default
+  weechat   buffers.color.none_channel_fg = 31  (default: default)
+  weechat   buffers.color.number = 237  (default: lightgreen)
+  weechat   buffers.color.number_char = 240  (default: lightgreen)
+  weechat   buffers.color.prefix_bufname = 244  (default: default)
+  weechat   buffers.color.queries_default_bg = default
+  weechat   buffers.color.queries_default_fg = default
+  weechat   buffers.color.queries_highlight_bg = default
+  weechat   buffers.color.queries_highlight_fg = default
+  weechat   buffers.color.queries_message_bg = default
+  weechat   buffers.color.queries_message_fg = default
+  weechat   buffers.color.suffix_bufname = 244  (default: default)
+  weechat   buffers.color.whitelist_default_bg = default
+  weechat   buffers.color.whitelist_default_fg = red  (default: default)
+  weechat   buffers.color.whitelist_highlight_bg = blue  (default: default)
+  weechat   buffers.color.whitelist_highlight_fg = default
+  weechat   buffers.color.whitelist_low_bg = default
+  weechat   buffers.color.whitelist_low_fg = default
+  weechat   buffers.color.whitelist_message_bg = default
+  weechat   buffers.color.whitelist_message_fg = default
+  weechat   buffers.color.whitelist_private_bg = default
+  weechat   buffers.color.whitelist_private_fg = default
+

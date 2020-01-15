@@ -1,0 +1,33 @@
+[armin@kernobst:~] crontab -l | grep -v '^#'
+
+*/3 8-21 * * * $HOME/bin/darkmode off
+*/3 21-8 * * * $HOME/bin/darkmode on
+
+[armin@kernobst:~] cat bin/darkmode 
+#!/bin/sh
+date > ~/.darkmode.lastrun
+case "$1" in
+on)
+osascript -e 'tell application "System Events" to tell appearance preferences to set dark mode to true'
+osascript -e "tell application \"Finder\" to set desktop picture to POSIX file \"/Users/armin/Pictures/Mountain-Night-Lights-2560x1600.jpg\""
+;;
+off)
+osascript -e 'tell application "System Events" to tell appearance preferences to set dark mode to false'
+osascript -e "tell application \"Finder\" to set desktop picture to POSIX file \"/Users/armin/Pictures/04108_lakeohau_2560x1600.jpg\""
+;;
+toggle)
+osascript -e 'tell application "System Events" to tell appearance preferences to set dark mode to not dark mode'
+;;
+esac
+
+[armin@kernobst:~] crontab -l | grep -v '^#'
+
+*/3 8-21 * * * $HOME/bin/darkmode off
+*/3 21-8 * * * $HOME/bin/darkmode on
+
+[armin@kernobst:~] 
+
+
+
+
+

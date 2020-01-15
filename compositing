@@ -1,0 +1,60 @@
+#!/usr/bin/env bash
+
+# compositing - enable/disable compositing (Xorg + compton)
+# Simple compton wrapper script (default values in brackets)
+
+# https://github.com/netzverweigerer
+
+# opacity of window borders (100)
+border_opacity=0.8
+
+# time between fade steps (10)
+fade_time=30
+
+# shadow offsets
+shadow_left_offset=1
+shadow_top_offset=1
+
+# opacity of shadows (0.075)
+shadow_opacity=0.4
+
+# shadow blur radius (12)
+shadow_radius=2
+
+# opacity of popup windows (menus)
+popup_opacity=100
+
+# shadow color values
+shadow_red="0.20"
+shadow_green="0.20"
+shadow_blue="0.20"
+
+run () {
+set -x
+compton --backend glx --vsync opengl-swc --glx-use-gpushader4 --no-fading-openclose --respect-prop-shadow -f --vsync opengl -c -l $shadow_left_offset -t $shadow_top_offset --xinerama-shadow-crop -e $border_opacity -o $shadow_opacity -r $shadow_radius -D $fade_time -m $popup_opacity -C -c -D $fade_time --shadow-red $shadow_red --shadow-green $shadow_green --shadow-blue $shadow_blue  &
+set +x
+# compton -vsync opengl -cb &
+# compton -cCGfF -o 0.38 -O 200 -I 200 -t 0 -l 0 -r 3 -D2 -m 0.88
+# compton -cCGf
+# compton -c --shadow-red 1 --shadow-green 1 --shadow-blue 1
+# compton --backend glx --vsync opengl-swc
+}
+
+case "$1" in
+  on)
+    run
+    sleep 0.5
+    echo "done."
+  ;;
+   off)
+    pkill -x compton
+    sleep 0.5
+    echo "done."
+  ;;
+  *)
+    echo "Usage Error. Usage: ${0%%*/} <on|off>. Exiting."; exit 1
+  ;;
+esac
+
+
+

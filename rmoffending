@@ -1,0 +1,121 @@
+#!/bin/bash
+
+# rmoffending - remove offending host key from OpenSSH known_hosts files
+
+# Written by Armin <spampostfach1@yahoo.de>
+
+# specify offending key in format: <file>:<line>
+# example: rmoffending /home/user/.ssh/known_hosts:42
+#
+
+# As we're obviously doing something that could be harmless to the system,
+# this script takes extra care of not f*cking things up, that is:
+# 
+# 1) Making a backup of your known_hosts file (TODO: implement this)
+# 2) Checking both filename and linenumber specifications (which is being
+# specified by ONE argument, but, uhm, read on)
+#
+
+tmpfile="/tmp/rmoffending.tmp"
+
+args="$1"
+
+# stuff we need to clean up before we go-go...
+bailout () {
+  rm -rf "$tmpfile"
+}
+
+# usage info
+usage () {
+  echo ""
+  echo "Usage: $0 <file>:<line>"
+  echo "Usage example: rmoffending /home/user/.ssh/known_hosts:42"
+  echo ""
+}
+
+# check if the linenumber we got is an INT
+check_linenumber () {
+re="^[0-9]+$"
+if [[ ! $1 =~ $re ]]; then
+  echo "\"$1\" does not seem to be an integer value. o.O"
+  bailout
+  exit 1
+fi
+}
+
+# check if the file we got is valid
+check_filename () {
+re="^[./_a-zA-Z]+$"
+if [[ ! $1 =~ $re ]]; then
+  echo "\"$1\" does not seem to be a path to a known_hosts file."
+  bailout
+  exit 1
+fi
+if [[ ! -f $1 ]]; then
+  echo "$1 is not a file or not readable or some other strange things happened. I don't know. I've given up. Have a nice day."
+fi
+}
+
+# check total number of lines in file against the linenumber to be removed
+check_lines_in_file () {
+linenumber="$1"
+filename="$2"
+linescount="$(wc -l "$filename" | awk '{printf $1}')"
+if [[ $linenumber -gt $linescount ]]; then
+  echo "You requested to remove $linenumber from file $filename, but that file only has $linescount lines."
+  bailout
+  exit 1
+fi
+}
+
+# check if the first argument contains a ":" to seperate filename from linenumber
+if [[ ! $args =~ ^.*:.*$ ]]; then
+  echo "First argument does not contain a \":\" character. exiting."
+  usage
+  bailout
+  exit 1
+else
+  filename="${args%:*}"
+  linenumber="${args#*:}"
+  check_linenumber "$linenumber"
+  check_filename "$filename"
+fi
+
+echo "Line: $linenumber  ---  File: $filename"
+
+count=0
+unchanged=0
+while read line; do
+  ((count+=1))
+  if [[ "$count" == "$linenumber" ]]; then
+    content="$line"
+  else
+    ((unchanged+=1))
+    echo "$line" >> "$tmpfile"
+  fi
+done < "$filename"
+
+# check if user specified a line number greater than the actual lines in the file
+check_lines_in_file "$linenumber" "$filename"
+
+echo ""
+echo "I would remove the following content from your $filename file: "
+echo ""
+echo "$content"
+echo ""
+echo "Number of unchanged lines in file: $unchanged"
+echo ""
+echo -n "[DANGER ZONE] Really delete this entry? [y/N] "
+read -n 1 yesno
+if [[ "$yesno" =~ ^[yYjJ]$ ]]; then
+  echo "Removing line $linenumber ..."
+fi
+
+mv "$tmpfile" "$filename"
+
+echo ""
+
+echo "done."
+
+
+

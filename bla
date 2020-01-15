@@ -1,0 +1,22 @@
+$ sudo apt install ansible
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+Some packages could not be installed. This may mean that you have
+requested an impossible situation or if you are using the unstable
+distribution that some required packages have not yet been created
+or been moved out of Incoming.
+The following information may help to resolve the situation:
+
+The following packages have unmet dependencies:
+ ansible : Depends: python-jinja2 (< 2.9) but it is not going to be installed
+           Recommends: python-jmespath but it is not going to be installed
+           Recommends: python-kerberos but it is not going to be installed
+           Recommends: python-libcloud but it is not going to be installed
+           Recommends: python-selinux but it is not going to be installed
+           Recommends: python-winrm (>= 0.1.1) but it is not going to be installed
+           Recommends: python-xmltodict but it is not going to be installed
+E: Unable to correct problems, you have held broken packages.
+$ 
+
+

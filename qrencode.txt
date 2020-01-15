@@ -1,0 +1,4 @@
+WIFI:S:my-ssid;T:[WEP|WPA|WPA2];P:my-password;;
+qrencode -t SVG -o WiFi.svg "WIFI:S:my-ssid;T:WPA2;P:my-password;;"
+
+

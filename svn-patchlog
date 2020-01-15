@@ -1,0 +1,36 @@
+#!/bin/bash
+# 
+# svn-patchlog
+#
+# Written by Armin Jenewein (@netzverweigerer on GitHub)
+# 
+# Pretty-prints last N commits for a subversion repository, along with their
+# corresponding patch-sets.
+# 
+# If N is ommitted, a default value of "100" is being used.
+# 
+# It is recommended to use "diff-cmd = colordiff" in ~/.subversion/config
+# (install the "colordiff" package of your distribution if missing).
+# 
+
+case "$1" in
+  '')
+    num=100
+  ;;
+  *)
+    num="$1"
+  ;;
+esac
+
+if [[ ! $num =~ ^[0-9]+$ ]]; then echo "ERROR: Non-integer specified."; exit 255; fi
+
+count=0
+svn log | grep '^r' | grep -vE '(run|redirect)' | head -n 100 | cut -d" " -f 1 | while read line; do
+  let count+=1
+  echo; tput setaf 4; echo "SVN Revision: $line ($count/$num)"; tput setaf 5; svn log -v -r $line; tput sgr0; echo; svn diff -c "$line"
+  if [[ "$count" -ge "$num" ]]; then
+    exit 0
+  fi
+done
+
+

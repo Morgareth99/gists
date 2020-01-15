@@ -1,0 +1,11 @@
+#!/bin/bash
+# simple compton startup script - <armin@mutt.email>
+killall -9 compton
+compton_top_offset="-10"
+compton_left_offset="-10"
+compton_opacity_borders="1.0"
+compton_opacity_shadows="0.5"
+compton_radius="10"
+compton -t "$compton_top_offset" -l "$compton_left_offset" --xinerama-shadow-crop --vsync opengl -e "$compton_opacity_borders" -o "$compton_opacity_shadows" -r "$compton_radius" -D 3 -m 0.95 -C -G --dbe --use-ewmh-active-win -f --no-fading-openclose -c --shadow-exclude="name = 'XOSD'" &
+# compton --backend glx --vsync opengl-swc -t "$compton_top_offset" -l "$compton_left_offset" --xinerama-shadow-crop -e "$compton_opacity_borders" -o "$compton_opacity_shadows" -r "$compton_radius" -D 3 -m 0.95 -C -G --dbe --use-ewmh-active-win -f --no-fading-openclose -c --shadow-exclude="name = 'XOSD'"
+

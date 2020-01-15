@@ -1,0 +1,8 @@
+root@peng:~# grep -i handlelid /etc/elogind/logind.conf 
+HandleLidSwitch=suspend
+###HandleLidSwitchDocked=ignore
+HandleLidSwitchDocked=suspend
+root@peng:~# 
+
+
+

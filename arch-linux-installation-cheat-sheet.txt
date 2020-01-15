@@ -1,0 +1,52 @@
+# simple arch linux installation cheat-sheet
+# written by armin <armin@mutt.email>
+
+# pre installation steps
+wifi-menu
+lsblk
+fdisk /dev/sdX
+o
+n
+p
++15G
+n
+p
+w
+mkfs.ext4 /dev/sda1
+mkfs.ext4 /dev/sda2
+mount /dev/sda1 /mnt
+mkdir /mnt/home
+mount /dev/sda2 /mnt/home
+
+# base installation
+pacstrap -i /mnt base
+
+# fstab
+genfstab -U -p /mnt >> /mnt/etc/fstab
+
+# chroot
+arch-chroot /mnt /bin/bash
+
+# The following commands will run in the chroot environment:
+nano /etc/locale.gen
+locale-gen
+echo LANG=en_US.UTF-8 > /etc/locale.conf
+export LANG=en_US.UTF-8
+ln -s /usr/share/zoneinfo/Europe/Berlin /etc/localtime
+echo hostname > /etc/hostname
+pacman -S sudo iw wpa_supplicant dialog grub
+mkinitcpio -p linux
+grub-install —target=i386-pc —recheck /dev/sda
+grub-mkconfig -o /boot/grub/grub.cfg
+useradd myusername
+passwd myusername
+passwd
+pacman -S vim
+visudo
+exit
+
+# post installation steps
+umount -R /mnt
+reboot
+
+

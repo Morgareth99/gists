@@ -1,0 +1,29 @@
+#!/bin/bash
+
+# wtosd - Window Title On Screen Display
+# Written 20140905 by Armin <netzverweigerer@github>
+
+# This script was made for window manager setups that do not show a title bar
+# for windows. It looks for the currently active window, looks up the window
+# title via xprop, and then renders an OSD (on screen display) to show the
+# window title of that window. It is best being used via a hotkey/keybinding.
+# If you use i3, you can define one e.g. via:
+# bindsym $mod+t exec /path/to/this/script
+
+# font
+# osd_font="-*-terminus-*-*-*-*-*-320-*-*-*-*-*-*"
+# osd_font="-*-terminus-*-*-*-*-*-320-*-*-*-*-*-*"
+osd_font="-*-terminus-bold-*-normal-*-*-320-*-*-*-*-*-*"
+
+# window title name
+title="$(xprop -id $(xprop -root _NET_ACTIVE_WINDOW | cut -d ' ' -f 5) WM_NAME | cut -d"=" -f 2- | cut -b 3- | rev | cut -b 2- | rev)"
+# window class name
+class="$(xprop -id $(xprop -root _NET_ACTIVE_WINDOW | cut -d ' ' -f 5) | grep -i ^wm_class | rev | cut -b 2- | cut -d"," -f 1 | rev | cut -b 3-)"
+
+# if there is already an osd_cat running, kill it and wait 0.2s before
+# displaying a new one (to avoid a flashing effect / assure visual smoothness)
+pidof osd_cat && pkill -x osd_cat && sleep 0.2
+
+# display osd_cat
+echo -e "[$class]\n[$title]" | osd_cat -A center -f "$osd_font" -O 2 -u "#000" - -T "Window Title:" -c "#8f8" -o 20
+

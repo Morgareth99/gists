@@ -1,0 +1,35 @@
+---
+- hosts: base
+  remote_user: ansible
+  become: true
+  vars:
+    baseline_ssh_keys_root: ansible
+    baseline_ssh_keys_ansible: ansible
+    baseline_packages_final: []
+    baseline_update_packages: true
+    baseline_norootpermit: true
+    baseline_user:
+        - {name: armin, groups: "wheel", home: /home/armin}
+  tasks:
+  - name: Add EPEL repository
+    yum:
+      name: epel-release
+      state: present
+    become: yes
+    become_user: root
+  - name: Stop and disable firewalld
+    service:
+      name: firewalld
+      state: stopped
+      enabled: False
+  - include_role:
+      name: baseline
+  - name: copy bashrc
+    template:
+      src: bashrc
+      dest: /home/{{ baseline_user.name }}/.bashrc
+
+
+
+
+

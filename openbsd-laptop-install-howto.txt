@@ -1,0 +1,117 @@
+Install OpenBSD on a desktop
+
+Prepare an USB drive with OpenBSD installer.
+For example, on macOS.
+
+Backup everything.
+
+Check BIOS: Secure Boot disabled, UEFI Boot enabled.
+For example, on ThinkPad X1C5.
+
+Boot the installer.
+
+Select (S)hell to create encrypt the drive.
+
+# sysctl hw.disknames
+hw.disknames=sd0:xxxxxxxxxxx,rd0:xxxxxxxxxxx,sd1:xxxxxxxxxxx
+
+In this case sd0 is the target drive.
+rd0 is ramdisk for installer kernel.
+sd1 is USB drive with OpenBSD installer.
+
+Erase all data on sd0. Create GUID Partition Table (GPT) and a partition layout.
+
+# dd if=/dev/urandom of=/dev/rsd0c bs=1m
+# fdisk -iy -g -b 960 sd0
+# disklabel -E sd0
+Label editor (enter '?' for help at any prompt)
+a a
+offset: [1024]
+size: [500117105]
+FS type: [4.2BSD] RAID
+w
+q
+No label changes.
+#
+
+Generate a strong passphrase. Use diceware, for example.
+
+# bioctl -c C -l sd0a softraid0
+New passphrase:
+Re-type passphrase:
+sd2 at scsibus2 targ 1 lun 0: <OPENBSD, SR CRYPTO, 006> SCSI2 0/direct fixed
+sd2: 244190MB, 512 bytes/sector, 500102858 sectors
+softraid0: CRYPTO volume attached as sd2
+# cd /dev && sh MAKEDEV sd2
+# dd if=/dev/zero of=/dev/rsd2c bs=1m count=1
+1+0 records in
+1+0 records out
+1048576 bytes transferred in 0.003 secs (265557618 bytes/sec)
+# exit
+
+Select (I)nstall and answer questions.
+
+System hostname? = foo
+Which network interface do you wish to configure? = em0
+DNS domain name? = romanzolotarev.com
+Password for root account? = **************************
+Do you want the X Window System to be started by xenodm(1)? = yes
+Setup a user? = romanzolotarev
+Full name for user romanzolotarev? = Roman Zolotarev
+Password for user romanzolotarev? = *******************
+What timezone are you in? = UTC
+Which disk is the root disk? = sd2
+Use (W)hole disk MBR, whole disk (G)PT or (E)dit? = gpt
+Location of sets? = disk
+Is the disk partition already mounted? = no
+Which disk contains the install media? = sd1
+Directory does not contain SHA256.sig. Continue without verification? = yes
+
+Unplug USB drive with the installer and boot OpenBSD from the target drive. Login as a regular user and run this command in xterm(1) to switch to root.
+
+$ su -
+Password:
+#
+
+Set install URL and run syspatch(8):
+
+# echo 'https://fastly.cdn.openbsd.org/pub/OpenBSD'>/etc/installurl
+# syspatch
+...
+Relinking to create unique kernel... done.
+#
+
+Update fstab(5) to add noatime:
+
+# cp /etc/fstab /etc/fstab.bak
+# sed -i 's/rw/rw,noatime/' /etc/fstab
+#
+
+Update login.conf(5) to increase memory limits:
+
+# cp /etc/login.conf /etc/login.conf.bak
+# sed -i 's/datasize-cur=768M/datasize-cur=4096M/' /etc/login.conf
+# sed -i 's/datasize-max=768M/datasize-max=4096M/' /etc/login.conf
+#
+
+Enable apmd(8):
+
+# rcctl enable apmd
+# rcctl set apmd flags -A -z 7
+# rcctl start apmd
+ampd (ok)
+#
+
+Add your username /etc/doas.conf:
+
+# echo 'permit username' > /etc/doas.conf
+#
+
+Reboot and login as a regular user.
+
+Source: https://rgz.ee/openbsd/install.html
+
+
+
+
+

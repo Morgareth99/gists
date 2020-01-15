@@ -1,0 +1,10 @@
+bash-4.3# strace ./Telegram 
+execve("./Telegram", ["./Telegram"], [/* 8 vars */]) = -1 ENOENT (No such file or directory)
+writev(2, [{iov_base="strace: exec: No such file or di"..., iov_len=39}, {iov_base="\n", iov_len=1}], 2strace: exec: No such file or directory
+) = 40
+writev(2, [{iov_base="", iov_len=0}, {iov_base=NULL, iov_len=0}], 2) = 0
+getpid()                                = 26
+exit_group(1)                           = ?
++++ exited with 1 +++
+bash-4.3# 
+

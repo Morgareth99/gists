@@ -1,0 +1,16 @@
+#!/bin/sh
+
+dev="eth0"
+
+echo -n "$dev: "
+
+# a = RX, b = TX
+a="$(/usr/bin/inetutils-ifconfig "$dev" | grep 'RX packets' | xargs | cut -d":" -f 2- | cut -d" " -f 1)"
+b="$(/usr/bin/inetutils-ifconfig "$dev" | grep 'TX packets' | xargs | cut -d":" -f 2- | cut -d" " -f 1)"
+
+echo "RX: $a, TX: $b"
+
+
+
+
+

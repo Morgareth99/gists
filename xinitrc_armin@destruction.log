@@ -1,0 +1,85 @@
++ synclient TapButton1=1
++ xset r rate 240 20
++ xset b 0
++ setxkbmap de
++ sleep 2
++ pkill -x xbindkeys
++ killall -9 xbindkeys
+xbindkeys: no process found
++ xset +fp /home/armin/.fonts/
++ xbindkeys -f /home/armin/.xbindkeysrc -n
++ xset +fp /home/armin/.fonts/Terminus/
+xset:  bad font path element (#0), possible causes are:
+    Directory does not exist or has wrong permissions
+    Directory missing fonts.dir
+    Incorrect font server address or syntax
++ xset +fp /home/armin/.fonts/misc/
++ xset +fp /home/armin/.fonts/artwiz-fonts-wl
++ xrdb
++ sleep 0.5
++ /home/armin/github/wp/wp --restore
++ xscreensaver -no-splash
+[312m[[37mwp[312m][m Total number of wallpapers found: 36
+Restoring last set wallpaper... 
+Setting: /home/armin/Pictures/minimalfoo2.png
++ xrdb
++ sleep 2
++ /home/armin/.screenlayout/triplehead.sh
++ autocutsel -s PRIMARY
++ sleep 1
++ setxkbmap -option terminate:ctrl_alt_bksp
++ exec /home/armin/github/i3/i3 -c /home/armin/.i3/config
+09/16/2016 09:27:36 AM - [libi3] ERROR: Could not open font gelly.de (X error 15). Trying fallback to 'fixed'.
+[libi3] ERROR: Could not open font gelly.de (X error 15). Trying fallback to 'fixed'.
++ nm-applet
+
+(nm-applet:26531): Gtk-WARNING **: gtk_widget_size_allocate(): attempt to underallocate toplevel GtkTrayIcon 0x1b863c0. Allocation is 15x15, but minimum required size is 16x16.
+
+(nm-applet:26531): Gtk-WARNING **: gtk_widget_size_allocate(): attempt to underallocate GtkTrayIcon's child GtkImage 0x1aed590. Allocation is 15x15, but minimum required size is 16x16.
+
+(nm-applet:26531): Gtk-WARNING **: gtk_widget_size_allocate(): attempt to underallocate toplevel GtkTrayIcon 0x1b863c0. Allocation is 15x15, but minimum required size is 16x16.
+
+(nm-applet:26531): Gtk-WARNING **: gtk_widget_size_allocate(): attempt to underallocate GtkTrayIcon's child GtkImage 0x1aed590. Allocation is 15x15, but minimum required size is 16x16.
+rgba:1d22/1d22/1d22/aa00
+rgba:1d22/1d22/1d22/aa00
+rgba:1d22/1d22/1d22/aa00
+rgba:1d22/1d22/1d22/aa00
+rgba:1d22/1d22/1d22/aa00
+rgba:1d22/1d22/1d22/aa00
+1474011151260	addons.productaddons	ERROR	Request failed certificate checks: [Exception... "SSL is required and URI scheme is not https."  nsresult: "0x8000ffff (NS_ERROR_UNEXPECTED)"  location: "JS frame :: resource://gre/modules/CertUtils.jsm :: checkCert :: line 145"  data: no]
+rgba:1d22/1d22/1d22/aa00
+ERROR: CredSSP: Initialize failed, do you have correct kerberos tgt initialized ?
+Connection established using SSL.
+WARNING: Remote desktop does not support colour depth 24; falling back to 16
+rgba:1d22/1d22/1d22/aa00
+rgba:1d22/1d22/1d22/aa00
+rgba:1d22/1d22/1d22/aa00
+rgba:1d22/1d22/1d22/aa00
+rgba:1d22/1d22/1d22/aa00
+rgba:1d22/1d22/1d22/aa00
+rgba:1d22/1d22/1d22/aa00
+done.
+done.
+XIO:  fatal IO error 11 (Resource temporarily unavailable) on X server ":2"
+XIO:  fatal IO error 11 (Resource temporarily unavailable) on X server ":2"
+      after 201913 requests (201913 known processed) with 0 events remaining.
+      after 117763 requests (117762 known processed) with 0 events remaining.
+urxvt: urxvt: X connection to ':2' broken, unable to recover, exiting.
+X connection to ':2' broken, unable to recover, exiting.
+urxvt: X connection to ':2' broken, unable to recover, exiting.
+urxvt: X connection to ':2' broken, unable to recover, exiting.
+
+(nm-applet:26531): Gdk-WARNING **: nm-applet: Fatal IO error 11 (Resource temporarily unavailable) on X server :2.
+
+urxvt: X connection to ':2' broken, unable to recover, exiting.
+XIO:  fatal IO error 11 (Resource temporarily unavailable) on X server ":2"
+      after 7530 requests (7530 known processed) with 0 events remaining.
+XIO:  fatal IO error 11 (Resource temporarily unavailable) on X server ":2"
+      after 50 requests (50 known processed) with 0 events remaining.
+i3: Cannot open display
+
+Closing SHM log "/i3-log-26191"
+XIO:  fatal IO error 11 (Resource temporarily unavailable) on X server ":2"
+      after 1118 requests (1118 known processed) with 0 events remaining.
+firefox-esr: Fatal IO error 11 (Resource temporarily unavailable) on X server :2.
+[libi3] libi3/font.c Using X font fixed

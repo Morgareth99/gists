@@ -1,0 +1,42 @@
+#!/bin/sh
+# 
+# [kwallz]
+#
+# (netzverweigerer@GitHub)
+# 
+# Adds all files in the current directory to the KDE wallpaper selection dialog
+#
+# This is a dirty hack since the KDE plasma wallpaper selection dialog doesn't
+# allow adding more than one wallpaper at a time in any way.
+# 
+
+echo "" > /tmp/kwallz.tmp # empty tempfile
+
+exec 3<> /tmp/kwallz.tmp # open tempfile as fd 3.
+
+tput setaf 15
+echo "== Generating ~/.config/plasmarc with wallpapers from current directory, "
+echo "== please be patient, this might take some time..."
+
+cat ~/.config/plasmarc | grep -v '^usersWallpapers=' >&3
+
+echo -n "usersWallpapers=" >&3
+for file in *; do
+  # appends file if imagemagick was able to identify it
+  identify "$file" >/dev/null 2>&1 && {
+  tput setaf 12
+  echo -n "Adding wallpaper file: "
+  tput setaf 11
+  echo "$file"
+  readlink -f "$file" | tr '\n' ',' >&3
+  }
+done
+
+exec 3>&- #close fd 3.A
+
+mv /tmp/kwallz.tmp ~/.config/plasmarc
+
+tput setaf 15
+echo "== done."
+
+

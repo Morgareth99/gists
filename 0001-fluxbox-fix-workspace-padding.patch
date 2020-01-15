@@ -1,0 +1,25 @@
+From 117df99cafb2aa84343d4a77b8cec56cd0a8b8c6 Mon Sep 17 00:00:00 2001
+From: armin <armin@square>
+Date: Wed, 3 Feb 2016 20:48:40 +0100
+Subject: [PATCH] fix workspace name padding in toolbar
+
+---
+ src/WorkspaceNameTool.cc | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/WorkspaceNameTool.cc b/src/WorkspaceNameTool.cc
+index 5056a8f..8ba86f9 100644
+--- a/src/WorkspaceNameTool.cc
++++ b/src/WorkspaceNameTool.cc
+@@ -92,7 +92,7 @@ unsigned int WorkspaceNameTool::width() const {
+         max_size = std::max(m_theme->font().textWidth((*it)->name()), max_size);
+     }
+     // so align text dont cut the last character
+-    max_size += 2;
++    max_size += 20;
+ 
+     return max_size;
+ }
+-- 
+2.7.0
+

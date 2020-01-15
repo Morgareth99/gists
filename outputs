@@ -1,0 +1,31 @@
+#!/bin/bash
+#
+# outputs - sets monitor configuration based on actually connected displays
+# To add new configurations, just check for the display names using "xrandr"
+# and extend the if statement below.
+#
+# logging:
+exec >$HOME/.outputs.log 2>&1
+# debugging:
+# exec 2>&1
+#
+
+
+# define physical monitor connection ports here:
+display1="LVDS1"
+display2="DP3"
+
+# get "outputs" array
+outputs=($(xrandr | grep ' connected' | while read line; do echo "--- $line" | cut -d" " -f 2; done | tr '\n' ' ' | sed 's/ $//'))
+
+echo "Connected displays: ${outputs[@]}"
+
+# custom setups
+if [[ "${outputs[0]}" == "LVDS1" ]]; then
+	if [[ "${outputs[1]}" == "DP3" ]]; then 
+		. $HOME/.screenlayout/schlafzimmer.sh
+	fi
+fi
+
+
+

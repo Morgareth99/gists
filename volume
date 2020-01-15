@@ -1,0 +1,72 @@
+#!/bin/bash
+# vim:ft=sh ts=2 sw=2 sts=2 et
+
+# Written by Armin (netzverweigerer) - http://github.com/netzverweigerer
+
+# volume - simple script to change the audio volume from the command line
+
+# Synopsis:
+# volume [increase|decrease]
+
+# This script is released as public domain software - feel free to use it as
+# you wish
+
+# If the left/right channel volume levels are different, it calculates the
+# arithmetic average level and uses this as the "old" level before increasing
+# it by $stepsize percent.
+
+# The idea of this script is that you can easily use it with keyboard mappings,
+# for example with Ctrl-Alt-PgUp/PgDn mappings with xbindkeys. I use the
+# following in my .xbindkeysrc:
+#
+# "/home/armin/bin/volume increase"
+#     m:0xc + c:112
+#     Control+Alt + Prior
+# "/home/armin/bin/volume decrease"
+#     m:0xc + c:117
+#     Control+Alt + Next
+
+
+# Use how many percent step sizes?
+stepsize="3"
+
+# get current volume:
+function getvolume () {
+  current_left="$(amixer -- sget Master | cut -b 3- | grep ^Front\ Left | cut -d"[" -f 2 | cut -d"%" -f 1)"
+  current_right="$(amixer -- sget Master | cut -b 3- | grep ^Front\ Right | cut -d"[" -f 2 | cut -d"%" -f 1)"
+  if [[ "$current_left" -ne "$current_right" ]]; then
+    echo "Left and right channel have unequal levels."
+  fi
+  # get arithmetic average value of left/right:
+  average="$(echo "scale=2; (${current_left}+${current_right}) / 2" | bc | cut -d"." -f 1)"
+  echo "$average"
+}
+current="$(getvolume)"
+
+# set levels:
+function setvolume () {
+  vol="$@"
+  amixer -- sset Master "${@}%" >/dev/null
+}
+
+# increase volume:
+function increase () {
+  newlevel="$(echo "scale=2; ${current}+${stepsize}" | bc | cut -d"." -f 1)"
+  setvolume "$newlevel"
+}
+
+# decrease volume:
+function decrease () {
+  newlevel="$(echo "scale=2; ${current}-${stepsize}" | bc | cut -d"." -f 1)"
+  setvolume "$newlevel"
+}
+
+# parse argument:
+if [[ "$1" == "increase" ]]; then
+  increase
+fi
+if [[ "$1" == "decrease" ]]; then
+  decrease
+fi
+
+

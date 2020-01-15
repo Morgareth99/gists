@@ -1,0 +1,137 @@
+#!/bin/bash
+# vim: ts=2 sw=2 sts=2 et
+
+# [wp] simple wallpaper setter
+# Written by armin@unix.porn
+
+# wp solves the simple problem of not wanting to store huge amounts of
+# desktop background wallpapers on a notebook. it does this by simply creating
+# an array of the files in the current directory, shuffling that array,
+# and letting you select one of those shuffled wallpapers with the "n" and "p"
+# keys on your keyboard unless you're satisfied and press "q" to save/quit.
+# the selected wallpaper will be automatically copied to "$HOME/.wp" (, so
+# you can just use "wp -r" from your xinitrc file to set the saved copy.
+# this is especially useful when mounting a fileserver at home that
+# stores huge amounts of wallpapers, while you don't want to waste your
+# valuable laptop disk space on the road...
+
+# current directory (default)
+location="./"
+# location="$HOME/Pictures"
+
+# info line prefix
+p="[wp]"
+
+# wallpaper set command
+wpcmd="Esetroot -f"
+
+# timeout (time after the current wallpaper will be auto-selected and saved to ~/.wp)
+timeout="90"
+
+# function to shuffle the files array
+shuffle () {
+   local i tmp size max rand
+   size=${#files[*]}
+   max="32000"
+   for ((i=size-1; i>0; i--)); do
+      while (( (rand=$RANDOM) >= max )); do :; done
+      rand=$(( rand % (i+1) ))
+      tmp=${files[i]} files[i]=${files[rand]} files[rand]=$tmp
+   done
+}
+
+# printf "%s" "${array[@]}"
+
+# restores a wallpaper from saved path
+restore () {
+  # wp="$(cat $HOME/.wp)"
+  wp="$HOME/.wp"
+  echo "Restoring saved wallpaper $wp ..."
+  Esetroot -f "$wp" && exit 0
+  exit 1
+}
+
+# usage help
+usage () {
+  cat <<-END
+    [wp] keybindings:
+
+    n: (N)ext Image
+    p: (P)revious Image
+    q: (Q)uit wp - saves selected wallpaper, use "wp -r" to restore (e.g. from .xinitrc)
+    s: (S)lideshow, use the "q" key to quit and save. (e.g. from .xinitrc)
+
+END
+}
+
+# removes double strings from args and sets $m to the result
+removedoubleslashes () {
+  m="$(echo "$@" | sed 's#\/\/#\/#g')"
+}
+
+# sets wallpaper
+setwp () {
+  removedoubleslashes "$@"
+  echo "$p Setting wallpaper: $m"
+  Esetroot -f "$m" && echo "$p Wallpaper set, type [q] to save/quit."
+}
+
+# saves wallpaper path
+savewp () {
+  removedoubleslashes "$@"
+  echo "$p Saving wallpaper selection to ~/.wp: $m ..."
+  cp "$m" $HOME/.wp
+}
+
+# argument parser
+case "$1" in
+  -r)
+    restore
+    ;;
+  -s)
+    setwp "$@"
+  ;;
+  -h|*)
+    usage
+  ;;
+  '')
+    restore
+  ;;
+esac
+
+files=($location/*)
+# shuffle files array
+shuffle
+count=1
+
+while read -t "$timeout" -n 1 -s key; do
+  case "$key" in
+    n)
+      ((count++))
+      setwp "${files[count]}"
+    ;;
+    p)
+      ((count--))
+      setwp "${files[count]}"
+    ;;
+    q)
+      savewp "${files[count]}"
+      exit 0
+    ;;
+    *)
+      echo "$p Invalid input key."
+      usage
+    ;;
+  esac
+done
+
+echo "You seem to like this wallpaper, as you have been looking at it"
+echo "for more than 10 seconds. I decided to quit and save this for you."
+
+setwp "${files[count]}"
+savewp "${files[count]}" 
+
+echo "Goodbye."
+
+
+

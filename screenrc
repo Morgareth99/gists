@@ -1,0 +1,31 @@
+# screenrc - Armin <netzverweigerer@github>
+
+# turn the annoying visual bell feature off
+vbell off
+
+# turn off screen startup message
+startup_message off
+
+# termcap
+termcapinfo rxvt 'hs:ts=\E]2;:fs=\007:ds=\E]2;screen\007'
+termcapinfo xterm*|rxvt*|kterm*|Eterm* 'hs:ts=\E]0;:fs=\007:ds=\E]0;\007'
+
+# hardstatus
+defhstatus "screen ^E (^Et) | $USER@^EH"
+hardstatus alwayslastline
+hardstatus string "%{.kb}-%{.kB}- %{.kc}%-w%{.kW}%n*%t%{-}%+w %= %c %{.kB}-%{.kb}-"
+
+# hardstatus string '%{= kw}%-Lw%{= bW}%50> %n*%f %t%{= kw}%+Lw%< %{= kG}%-=%{= kw}[%D %m/%d/%y %c:%s] %1`%{-}'
+
+# alternate hardstatus setup
+# backtick 1 60 60 $HOME/bin/get_uptime
+# backtick 2 60 60 $HOME/bin/get_cputemp Core0
+# backtick 3 60 60 $HOME/bin/get_freemem
+# backtick 4 60 60 $HOME/bin/get_freeswap
+# backtick 5 60 60 $HOME/bin/get_volume PCM
+# backtick 6 60 60 $HOME/bin/get_gmail
+# backtick 7 60 60 $HOME/bin/get_updates
+# hardstatus string "%{.kb}-%{.kB}- %{.kc}%-w%{.kW}%n*%t%{-}%+w %= | %1` | %2`C | %3`/%4` | %5`% | %6`/%7` | %c %d/%m/%Y %{.kB}-%{.kb}-"
+
+# experimental, enable only if you know what you're doing
+# escape ^`.

@@ -1,0 +1,13 @@
+#!/bin/sh
+case "$1" in
+on)
+osascript -e 'tell application "System Events" to tell appearance preferences to set dark mode to true'
+;;
+off)
+osascript -e 'tell application "System Events" to tell appearance preferences to set dark mode to false'
+;;
+toggle)
+osascript -e 'tell application "System Events" to tell appearance preferences to set dark mode to not dark mode'
+;;
+esac
+

@@ -1,0 +1,23 @@
+#!/usr/bin/python
+
+import os
+import sys
+
+with open(sys.argv[1]) as f:
+  lines = f.readlines()
+  buffer = []
+  for line in lines:
+    if not line == "":
+      buffer.append(line)
+
+m = False
+for i in buffer:
+  if not m == True:
+    if not i.startswith('//') and not i.startswith('/***') and not i.startswith(' * ') and not i.startswith('*****') and not i.startswith(' ***'):
+      if i == "":
+        m = True
+      else:
+        m = False
+      print i.strip()
+
+

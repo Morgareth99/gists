@@ -1,0 +1,12 @@
+libressl-2.2.7 is vulnerable:
+OpenSSL -- multiple vulnerabilities
+CVE: CVE-2016-2176
+CVE: CVE-2016-2109
+CVE: CVE-2016-2108
+CVE: CVE-2016-2107
+CVE: CVE-2016-2106
+CVE: CVE-2016-2105
+WWW: https://vuxml.FreeBSD.org/freebsd/01d729ca-1143-11e6-b55e-b499baebfeaf.html
+
+
+

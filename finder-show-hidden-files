@@ -1,0 +1,32 @@
+#!/bin/bash
+
+usage () {
+  echo "$0 [--enable|--disable]"
+}
+
+case "$1" in
+  --enable)
+    echo "Enabling..."
+    defaults write com.apple.finder AppleShowAllFiles YES
+    echo "done."
+    exit 0
+  ;;
+  --disable)  
+    echo "Disabling..."
+    defaults write com.apple.finder AppleShowAllFiles NO
+    echo "done."
+    exit 0
+  ;;
+  --help)
+    usage
+    exit 0
+  ;;
+  *)
+    usage
+    exit 255
+  ;;
+esac
+
+
+
+

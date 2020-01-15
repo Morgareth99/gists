@@ -1,0 +1,20 @@
+[app] (name=fbrun)
+  [Position]	(WINCENTER)	{0 0}
+  [Layer]	{2}
+[end]
+
+[app] (name=lxappearance)
+  [Position]	(WINCENTER)	{0 0}
+  [Layer]	{2}
+[end]
+
+# [app] (name=urxvt)
+#   [Deco] (NONE) {0 0}
+#   [Layer]	{2}
+# [end]
+
+
+
+
+
+

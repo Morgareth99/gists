@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# push file(s) to android device
+
+tput setaf 11
+echo "Starting at: $(date)"
+
+for i in "$@"; do
+  tput setaf 12
+  echo "===> $i"
+  # sudo adb push -p "$i" /sdcard/Music
+  adb push -p "$i" /storage/emulated/0/Music/
+done
+
+tput setaf 10
+echo "Finished at: $(date)"
+
+
+

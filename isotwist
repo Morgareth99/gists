@@ -1,0 +1,59 @@
+#!/usr/local/bin/bash
+
+# 
+# [isotwist] write an .iso image to a USB stick on Mac OS X
+#   v0.1 (public beta)
+#   Copyright (c) 2015 Armin Jenewein <armin@mutt.email>
+#   Sun Sep 13 12:56:50 CEST 2015 (Armin Jenewein)
+# License: Apache License, Version 2.0
+#		http://www.apache.org/licenses/LICENSE-2.0
+# 
+
+usage () {
+  echo "$0 <imagefile.iso> <dev>"
+	echo "Example: isotwist install-amd64-minimal-20150910.iso disk2"
+	exit 1
+}
+
+info () {
+	tput setaf 221
+	echo -n "isotwist "
+	tput setaf 250
+	echo "$@"
+	echo
+}
+
+bailout () {
+  info "$@"
+	exit 1
+}
+
+# pre checks
+if [[ ! "$1" != "" ]]; then usage; fi
+if [[ ! "$2" != "" ]]; then usage; fi
+if [[ ! "$(file $1 | cut -d":" -f 2 | cut -b 2-)" =~ .*ISO.*9660.* ]]; then info "$1 is not an ISO 9660 image. exiting."; exit 1; fi
+if [[ ! "$(file /dev/$2 | cut -d":" -f 2 | cut -b 2-)" =~ .*block.*special.* ]]; then info "$2 is not a block special device. exiting."; exit 1; fi
+if [[ -e /tmp/isotwist.dmg ]]; then info "A temporary isotwist file already exists, exiting."; exit 1; fi
+
+# conversion
+info "Starting conversion..."
+sudo hdiutil convert -format UDRW -o /tmp/isotwist "$1"
+if [[ "$?" != 0 ]]; then bailout "Conversion failed, exiting gracefully..."; fi
+info "Conversion done."
+info "Writing converted disk image to $2 in 5 seconds."
+tput setaf 22
+for i in 5 4 3 2 1 0; do echo -n "$i "; sleep 0.5; echo -n "..."; echo -n " "; sleep 0.5; done; echo
+info "Starting dd..."
+sleep 1
+info "dd command initiated at $(date), this might take some time..."
+sudo dd if=/tmp/isotwist.dmg of=/dev/r"$2" bs=1m
+if [[ "$?" != 0 ]]; then bailout "A critical error occured, check the output of the dd command above. Exiting."; exit 1; fi
+info "dd command successfully finished at $(date), removing temporary image file..."
+sudo rm -fv /tmp/isotwist.dmg
+info "You can safely ignore the disk initialization popup dialog of OS X. Just hit \"Ignore\"."
+info "Ejecting disk ${2}..."
+sudo diskutil eject /dev/"$2"
+info "Finished successfully. Goodbye."
+
+
+

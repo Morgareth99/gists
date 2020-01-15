@@ -1,0 +1,42 @@
+#!/bin/bash
+
+# fob - fob is a helper tool for ssh-agent / ssh-add
+# it displays the current ssh-agent status and if it
+# has unlocked keys that can be used to automate ssh
+# logins.
+
+# display a commandline help screen
+help () {
+	tput setaf 218
+  echo "Usage: ${0} <option> [<optarg>]"
+}
+
+case "$1" in
+list)
+	tput setaf 218
+ssh-add -l cut -d" " -f 3- | sed 's/(//;s/)$//;s/has//;s/^ //' | sed "s/\/home\/$USER\//~\//" | while read s f t d; do echo -n "[$t]  " | sed 's/\[no\]/fob: no keys\./g'; done
+;;
+delete|del|rm)
+	tput setaf 241
+	ssh-add -D
+;;
+add)
+	tput setaf 214
+  echo "Calling ssh-add to add keys to ssh-agent..."
+	tput setaf 221
+  ssh-add
+	tput setaf 214
+  echo "done."
+;;
+copy)
+	shift
+	tput setaf 218
+	echo "Output from ssh-copy-id follows..."
+	ssh-copy-id "$@"
+;;
+*)
+  echo "usage error."
+	help
+esac
+
+

@@ -1,0 +1,45 @@
+#
+# peervpn-interfaces example
+#
+# This will bring up the PeerVPN (see
+# http://peervpn.net/ for information) daemon
+# without any dependency for a specific init-system.
+#
+# vim: ts=2 sw=2 sts=2 et
+# Written by: Tobias Volk <mail@tobiasvolk.de>
+# Refactored by: Armin <armin@mutt.email>
+#
+# Note: Replace the string "abcdef" with your actual 
+# VPN name.
+#
+
+# Loopback
+auto lo
+iface lo inet loopback
+
+# Ethernet
+auto eth0
+allow-hotplug eth0
+iface eth0 inet manual
+
+# Primary WiFi
+auto wlan0
+allow-hotplug wlan0
+iface wlan0 inet manual
+wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
+
+# Secondary WiFi
+auto wlan1
+allow-hotplug wlan1
+iface wlan1 inet manual
+wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
+
+# PeerVPN
+auto tap9
+iface tap9 inet6 static
+        address 2001:db8::1
+        netmask 64
+        pre-up start-stop-daemon -S -b -m -p /run/peervpn-abcdef.pid -N -5 --exec /usr/local/sbin/peervpn -- /etc/peervpn/peervpn-abcdef.conf
+        post-down start-stop-daemon -K -p /run/peervpn-abcdef.pid
+
+

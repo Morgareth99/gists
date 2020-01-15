@@ -1,0 +1,1 @@
+sudo ln -s /usr/share/doc/bluez-test-scripts/examples/list-devices /usr/bin/bluez-list-devices

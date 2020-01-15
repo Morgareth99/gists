@@ -1,0 +1,109 @@
+#!/usr/local/bin/bash
+# vim: ts=2 sw=2 sts=2 et
+# 
+# [portbullet] - simple FreeBSD ports system management tool for BASH 4 (and above).
+# This script aims to be a simple port maintenance tool for FreeBSD.
+# Right now this script depends on BASH 4.x (or higher). Sorry about this.
+# 
+# Written by Armin Jenewein <armin@mutt.email>
+# 
+
+version=0.1
+base="$(basename $0)"
+
+# grep options
+if [[ "$PS1" != "" ]]; then
+  go="--color=always"
+else
+  go="--color=auto"
+fi
+
+usage () {
+cat <<eof
+[$base $version] Usage:
+$base [SUBCOMMAND] [PORTNAME]
+
+:: Usage Examples:
+
+*** Installs a port (vim) by section/package
+# portbullet install vim 
+
+*** De-Installs a port (irssi) by section/package
+# portbullet deinstall irssi
+
+*** Searches for a port (weechat) name
+# portbullet search weechat 
+eof
+}
+
+# targets=(config-recursive config install clean clean-depends)
+targets=(config-recursive install clean clean-depends)
+
+case "$1" in
+
+install)
+shift
+cd /usr/ports/
+pwd
+for i in "$@"; do
+  pwd
+  cd "$i"
+  pwd
+  for t in ${targets[@]}; do
+    echo "[$0] --- current make target: $t ---"
+    make $t
+    case $? in
+      0)
+        echo "[$0] [make] make run for $t successfully completed."
+      ;;
+      *)
+        echo "[$0] [make] make run for $t was NOT successful. Exiting gracefully."
+        exit 1
+      ;;
+    esac
+  done
+done
+echo "[$0] install procedure successfully finished."
+exit 0
+;;
+
+search)
+shift
+echo "[portbullet] search terms: $@"
+(
+echo "[make search key=$@] output follows..."
+echo
+echo "--- Results: "
+cd /usr/ports
+make search key="$@" 2>&1 | sed 's#/usr/ports/##g' | grep $go -i '^path' | sed 's/^Path\://g' | grep $go -i "$@"
+echo
+echo "You can use: portbullet install <path> to install a port."
+echo
+)
+;;
+
+deinstall)
+echo "[portbullet] De-Installing $@ ..."
+cd /usr/ports
+shift
+cd "$@" || exit 1
+make deinstall clean clean-depends
+;;
+
+list)
+shift
+for package in "$@"; do
+  pkg info | while read line; do if [[ "$line" =~ "$package" ]]; then echo "--- $line"; fi; done
+done
+;;
+
+*)
+echo "Usage Error."
+usage
+echo
+exit 1
+;;
+
+esac
+
+

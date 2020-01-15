@@ -1,0 +1,9 @@
+#!/bin/sh
+# Blink Thinklight 3 times (make sure permissions on 
+# /sys/devices/platform/thinkpad_acpi/leds/tpacpi::thinklight/brightness
+# allow you to write!!!)
+for i in 1 2 3; do for j in 1 0; do echo "$j" > /sys/devices/platform/thinkpad_acpi/leds/tpacpi::thinklight/brightness; sleep 0.08; done; done
+
+
+
+

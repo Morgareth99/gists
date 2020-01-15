@@ -1,0 +1,19 @@
+#!/bin/bash
+
+if [[ "$1" == "increase" ]]; then
+  xbacklight -inc 5
+fi
+
+if [[ "$1" == "decrease" ]]; then
+  xbacklight -dec 5
+fi
+
+if [[ "$1" == "slightincrease" ]]; then
+  xbacklight -inc 1
+fi
+
+if [[ "$1" == "slightdecrease" ]]; then
+  xbacklight -dec 1
+fi
+
+

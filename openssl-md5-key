@@ -1,0 +1,5 @@
+#!/bin/bash
+
+openssl rsa -noout -modulus -in "$1" | openssl md5
+
+

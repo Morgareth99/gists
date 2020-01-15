@@ -1,0 +1,68 @@
+#!/bin/bash
+
+# vim: ts=2 sw=2 sts=2 et
+# config file for bspwm [bspwmrc]
+# Written by Armin <armin@mutt.email> - http://unix.porn/
+
+# load xrdb settings (Xresources)
+xrdb < $HOME/.Xresources
+xset +fp $HOME/.fonts/
+
+# leave headroom for dzen2
+$HOME/git/bspwm/bspc config top_padding 14
+$HOME/git/bspwm/bspc config bottom_padding 0
+$HOME/git/bspwm/bspc config left_padding 0
+$HOME/git/bspwm/bspc config right_padding 0
+
+# start dzen2 on top of screen
+$HOME/bin/bspstatus | dzen2 -fn verdana-7 -bg '#262626' &
+
+# switch trackpad off
+$HOME/bin/tptog
+
+# set border width
+$HOME/git/bspwm/bspc config border_width 1
+
+# use gap between windows
+$HOME/git/bspwm/bspc config window_gap 0
+
+# define split ratio
+$HOME/git/bspwm/bspc config split_ratio 0.50
+
+# define multiple desktops
+$HOME/git/bspwm/bspc monitor LVDS1 -d I II III IV V VI VII VIII
+
+# set floating rules for some window types (see xwininfo)
+$HOME/git/bspwm/bspc rule -a Gimp floating=on
+$HOME/git/bspwm/bspc rule -a Lxappearance floating=on
+
+# monocle
+$HOME/git/bspwm/bspc config borderless_monocle true
+$HOME/git/bspwm/bspc config gapless_monocle true
+
+# focus options
+$HOME/git/bspwm/bspc config focus_by_distance true
+$HOME/git/bspwm/bspc config focus_follows_pointer false
+
+# auto alternate
+$HOME/git/bspwm/bspc config auto_alternate false
+
+# auto cancel
+$HOME/git/bspwm/bspc config auto_cancel true
+
+# colors
+$HOME/git/bspwm/bspc config normal_border_color "#262626"
+$HOME/git/bspwm/bspc config active_border_color "#469646"
+$HOME/git/bspwm/bspc config focused_border_color "#998866"
+$HOME/git/bspwm/bspc config presel_border_color "#4646c6"
+$HOME/git/bspwm/bspc config urgent_border_color "#c64686"
+$HOME/git/bspwm/bspc config focused_locked_border_color "#464686"
+
+# frame opacity
+$HOME/git/bspwm/bspc config normal_frame_opacity 0.0
+$HOME/git/bspwm/bspc config focused_frame_opacity 0.1
+
+# initial polarity
+$HOME/git/bspwm/bspc config initial_polarity second_child
+
+

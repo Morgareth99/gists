@@ -1,0 +1,16 @@
+#!/bin/bash
+
+if [[ -e "$1" ]]; then
+  echo "Performing file: $1"
+	cat "$1" | grep -v -E '^[\t\ ]*$'
+else
+  while read line; do 
+	if [[ "$line" =~ ^[\t\ ]*$ ]]; then
+	  echo "skipping line..."
+	else
+	  echo "$line"
+	fi
+	done
+fi
+
+

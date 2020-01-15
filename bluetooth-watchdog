@@ -1,0 +1,23 @@
+#!/bin/bash
+# vim: ts=2 sw=2 sts=2 et
+# simple bluetooth watchdog daemon.
+# to be run backgrounded from ~/.xinitrc
+# written by Armin <armin@mutt.email> - http://unix.porn/
+
+mac="AA:BB:CC:DD:EE:FF"
+sleep=5
+
+echo "Starting bluetooth-watchdog at: $(date)"
+while true; do
+alive=0
+sudo l2ping -c 1 "$mac" && alive=1
+
+if [[ "$alive" == 0 ]]; then
+  echo "Thinkpad bluetooth keyboard did not reply to l2ping ping request, restarting bluetooth service..."
+  sudo /etc/init.d/bluetooth restart
+fi
+echo "Waiting $sleep seconds before next check."
+sleep $sleep
+done
+
+

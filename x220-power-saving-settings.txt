@@ -1,0 +1,52 @@
+jazz# cat /boot/loader.conf
+kern.vty=vt
+
+#hw.vga.textmode="1"
+acpi_ibm_load="YES"
+acpi_video_load="YES"
+hw.pci.do_power_nodriver=3
+
+hint.ahcich.0.pm_level=5
+hint.ahcich.1.pm_level=5
+hint.ahcich.2.pm_level=5
+hint.ahcich.3.pm_level=5
+hint.ahcich.4.pm_level=5
+hint.ahcich.5.pm_level=5
+
+drm.i915.semaphores=1
+drm.i915.intel_iommu_enabled=1
+drm.i915.enable_rc6=7
+
+kern.vt.enable_bell=0
+
+hw.psm.synaptics_support=0
+hw.psm.trackpoint_support=1
+
+# disable throttling control
+hint.p4tcc.0.disabled=1
+hint.acpi_throttle.0.disabled=1
+
+kern.hz=100
+hint.atrtc.0.clock=0
+hint.apic.0.clock=0
+jazz# 
+
+
+jazz# cat /etc/rc.conf
+hostname="jazz.local"
+keymap="de"
+wlans_iwn0="wlan0"
+ifconfig_wlan0="WPA DHCP"
+dumpdev="NO"
+performance_cx_lowest="Cmax"
+economy_cx_lowest="Cmax"
+moused_flags="-VH"
+
+sshd_enable=YES
+dbus_enable=YES                                                      
+hald_enable=YES
+powerd_enable=YES
+webcamd_enable=NO
+jazz# 
+
+

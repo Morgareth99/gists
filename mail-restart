@@ -1,0 +1,21 @@
+#!/bin/bash
+
+echo "Removing old log-files..."
+rm -rfv /var/log/mail.*.1
+rm -rfv /var/log/mail.*.2
+rm -rfv /var/log/mail.*.gz
+
+echo "Emptying mail log-files..."
+for i in /var/log/mail.*; do echo "" > "$i"; done
+
+echo "Restarting mail-services..."
+/etc/init.d/postfix restart
+/etc/init.d/saslauthd restart
+/etc/init.d/dovecot restart
+
+echo "Mail-system has been restarted. Use \"mail-logview\" to view mail logs in real-time."
+
+echo "done."
+
+exit 0
+

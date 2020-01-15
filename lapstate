@@ -1,0 +1,46 @@
+#!/usr/bin/env bash
+
+bat="$(acpi | cut -d" " -f 4 | sed 's/,//')"
+time="$(date +'%H:%M')"
+user="$USER@$(hostname -f)"
+
+msg () {
+	args="$@"
+	tput setaf 240
+	printf "["
+	tput setaf 244
+	echo -n "$args"
+	tput setaf 240
+	printf "] "
+
+}
+
+bat () {
+	tput setaf 240
+	state="$(acpi | cut -d" " -f 3 | sed 's/,//g')"
+	if [[ "$state" == "Discharging" ]]; then
+		printf "["
+		tput setaf 130
+		printf "D"
+		tput setaf 240
+		printf "] "
+	fi
+	if [[ "$state" == "Charging" ]]; then
+		printf "["
+		tput setaf 28
+	  printf "C"
+		tput setaf 240
+		printf "] "
+	fi
+}
+
+
+
+msg "${SHELL##*/}"
+bat
+
+for i in bat time user; do text="$(eval echo \$$i)"; msg "$text"; done
+printf "\n"
+
+
+

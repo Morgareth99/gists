@@ -1,0 +1,31 @@
+#!/bin/bash
+
+# quick and dirty hack to re-start plasmashell (will pessimistically sleep after re-starting
+# to wait for kstart producing output - sorry...).
+
+ksleep=1
+psleep=8
+
+echo "Killing old plasmashell instance (will wait for ${ksleep} seconds..."
+pkill -x plasmashell
+tput setaf 5
+echo "=== Waiting for 3sec..."
+tput sgr0
+sleep "${ksleep}"
+
+echo "Re-starting plasmashell (will wait for ${psleep} seconds)..."
+pkill -x plasmashell; kstart --waitforwm plasmashell
+tput setaf 5
+echo "=== Waiting for ${psleep} sec after re-starting plasmashell..."
+tput sgr0
+sleep "${psleep}"
+echo
+echo
+tput setaf 5
+echo "=== Execution done."
+echo "=== You should exit from this shell as kstart loves to spam"
+echo "=== the terminal after the command finishes. Bye."
+tput sgr0
+echo
+
+

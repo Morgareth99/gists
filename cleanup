@@ -1,0 +1,33 @@
+#!/bin/bash
+#
+# Simple cleanup script for OS X (will clean up the ASL cache, which will
+# greatly decrease login times, hence speeding up spawning a new Terminal
+# instance.
+# <armin@mutt.email>
+
+exec >$HOME/.cleanup.log 2>&1
+
+msg () {
+	echo "[cleanup] - [$@]"
+}
+
+msg "Removing ASL logs ..."
+sleep 1
+sudo rm -rf /private/var/log/asl/*
+
+
+msg "Purging ~/Library/Caches/ ..."
+sleep 1
+rm -rfv $HOME/Library/Caches/*
+
+msg "Purging ~/.cache/ ..."
+sleep 1
+rm -rfv $HOME/.cache/
+
+msg "Cleaning up ~/Desktop/ (will keep files in ~/.desktop/) ..."
+sleep 1
+find $HOME/Desktop/ -mindepth 1 -exec mv -v "{}" $HOME/.desktop \;
+
+msg "Successfully finished, exiting."
+sleep 1
+exit 0

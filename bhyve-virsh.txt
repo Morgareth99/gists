@@ -1,0 +1,8 @@
+armin@jazz:~> virsh -c 'bhyve:///system'
+Welcome to virsh, the virtualization interactive terminal.
+
+Type:  'help' for help with commands
+       'quit' to quit
+
+virsh # 
+

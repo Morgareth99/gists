@@ -1,0 +1,167 @@
+!URxvt settings-------------------------------------------------------------
+
+!!! Real transparency (compositing):
+URxvt*depth: 32
+URxvt*shading: 90
+!!! Fake transparency (no compositing manager):
+! URxvt*transparent: true
+! URxvt*shading: 50
+
+! URxvt*background: rgba:0400/0400/0400/c800
+! URxvt*fade: 10
+URxvt*bg: rgba:2000/2000/2000/dddd
+
+
+URxvt*cursorColor: #ff3333
+URxvt*saveLines: 2000
+URxvt*scrollBar: false
+URxvt*scrollBar_right: true
+URxvt*transpscrollbar: true
+URxvt*scrollColor:#383838
+URxvt*borderwidth: 0
+
+!URxvt color scheme:
+URxvt*background: #202020
+URxvt*foreground: #DEDEDE
+URxvt*colorUL: #86a2b0
+! black
+URxvt*color0  : #3E3436
+URxvt*color8  : #555753
+! red
+URxvt*color1  : #CC0000
+URxvt*color9  : #EF2929
+! green
+URxvt*color2  : #4E9A06
+URxvt*color10 : #8AE234
+! yellow
+URxvt*color3  : #C4A000
+URxvt*color11 : #FCE94F
+! blue
+URxvt*color4  : #3465A4
+URxvt*color12 : #729FCF
+! magenta
+URxvt*color5  : #75507B
+URxvt*color13 : #AD7FA8
+! cyan
+URxvt*color6  : #06989A
+URxvt*color14 : #34E2E2
+! white
+URxvt*color7  : #D3D7CF
+URxvt*color15 : #EEEEEC
+
+
+!! URxvt font settings:
+
+! Terminess, Powerline Font:
+#define FONT  -xos4-terminesspowerline-medium-r-normal--16-160-72-72-c-*-iso10646-1
+URxvt*font: FONT
+URxvt*boldFont: FONT
+
+!! Example of using multiple fallback fonts for URxvt:
+
+!! Terminus
+! URxvt.font:             xft:Terminus-10:hinting=True;antialias:True,xft:WenQuanYi Bitmap Song-10:medium;antialias=False,xft:WenQuanYi Zen Hei-10:medium;antialias=True,xft:HanaMinA-10:medium;antialias:True,xft:HanaMinB-10:medium;antialias:True,xft:HanaMinPlus-10:medium;antialias:True
+! URxvt.boldFont:             xft:Terminus-10:bold;hinting=True;antialias:True,xft:WenQuanYi Bitmap Song-10:bold;antialias=False,xft:WenQuanYi Zen Hei-10:bold;antialias=True,xft:HanaMinA-10:bold;antialias:True,xft:HanaMinB-10:bold;antialias:True,xft:HanaMinPlus-10:bold;antialias:True
+
+!! Terminus Powerline (Terminess Powerline)
+!! See: https://github.com/Lokaltog/powerline-fonts/tree/master/Terminus
+! URxvt.font:             xft:Terminess Powerline:size=10:hinting=True;antialias:True,xft:WenQuanYi Bitmap Song-10:medium;antialias=False,xft:WenQuanYi Zen Hei-10:medium;antialias=True,xft:HanaMinA-10:medium;antialias:True,xft:HanaMinB-10:medium;antialias:True,xft:HanaMinPlus-10:medium;antialias:True
+! URxvt.boldFont:             xft:Terminess Powerline:size=10:bold;hinting=True;antialias:True,xft:WenQuanYi Bitmap Song-10:bold;antialias=False,xft:WenQuanYi Zen Hei-10:bold;antialias=True,xft:HanaMinA-10:bold;antialias:True,xft:HanaMinB-10:bold;antialias:True,xft:HanaMinPlus-10:bold;antialias:True
+
+!! InconsolataDz
+! URxvt.font:             xft:Inconsolata-dz for Powerline:size=10:hinting=True;antialias:True,xft:PowerlineSymbols,xft:Font Awesome:size=10,xft:WenQuanYi Bitmap Song-12:medium;antialias=False,xft:WenQuanYi Zen Hei-12:medium;antialias=True,xft:HanaMinA-12:medium;antialias:True,xft:HanaMinB-12:medium;antialias:True,xft:HanaMinPlus-12:medium;antialias:True
+! URxvt.boldFont:             xft:Inconsolata-dz for Powerline:size=10:bold;hinting=True;antialias:True,xft:Font Awesome:size=10,xft:WenQuanYi Bitmap Song-12:bold;antialias=False,xft:WenQuanYi Zen Hei-12:bold;antialias=True,xft:HanaMinA-12:bold;antialias:True,xft:HanaMinB-12:bold;antialias:True,xft:HanaMinPlus-12:bold;antialias:True
+
+! URxvt.font:             xft:Inconsolata:size=10,xft:PowerlineSymbols,xft:FontAwesome,xft:WenQuanYi Bitmap Song-12:medium;antialias=False,xft:WenQuanYi Zen Hei-12:medium;antialias=True,xft:HanaMinA-12:medium;antialias:True,xft:HanaMinB-12:medium;antialias:True,xft:HanaMinPlus-12:medium;antialias:True
+! URxvt.boldFont:             xft:Inconsolata:size=10:bold;hinting=True;antialias:True,xft:PowerlineSymbols,xft:FontAwesome,xft:WenQuanYi Bitmap Song-12:bold;antialias=False,xft:WenQuanYi Zen Hei-12:bold;antialias=True,xft:HanaMinA-12:bold;antialias:True,xft:HanaMinB-12:bold;antialias:True,xft:HanaMinPlus-12:bold;antialias:True
+
+!! Droid Sans Mono
+! URxvt.font:             xft:Droid Sans Mono for Powerline-10:hinting=True;antialias:True,xft:WenQuanYi Bitmap Song-12:medium;antialias=False,xft:WenQuanYi Zen Hei-12:medium;antialias=True,xft:HanaMinA-12:medium;antialias:True,xft:HanaMinB-12:medium;antialias:True,xft:HanaMinPlus-12:medium;antialias:True
+! URxvt.boldFont:             xft:Droid Sans Mono for Powerline-10:bold;hinting=True;antialias:True,xft:WenQuanYi Bitmap Song-12:bold;antialias=False,xft:WenQuanYi Zen Hei-12:bold;antialias=True,xft:HanaMinA-12:bold;antialias:True,xft:HanaMinB-12:bold;antialias:True,xft:HanaMinPlus-12:bold;antialias:True
+
+!! Source Code Pro
+! URxvt.font:             xft:Source Code Pro for Powerline-10:hinting=True;antialias:True,xft:WenQuanYi Bitmap Song-10:medium;antialias=False,xft:WenQuanYi Zen Hei-10:medium;antialias=True,xft:HanaMinA-10:medium;antialias:True,xft:HanaMinB-10:medium;antialias:True,xft:HanaMinPlus-10:medium;antialias:True
+! URxvt.boldFont:             xft:Source Code Pro for Powerline-10:bold;hinting=True;antialias:True,xft:WenQuanYi Bitmap Song-10:bold;antialias=False,xft:WenQuanYi Zen Hei-10:bold;antialias=True,xft:HanaMinA-10:bold;antialias:True,xft:HanaMinB-10:bold;antialias:True,xft:HanaMinPlus-10:bold;antialias:True
+
+! URxvt.font:             xft:Source Code Pro for Powerline-9:hinting=True;antialias:True,xft:WenQuanYi Bitmap Song-9:medium;antialias=False,xft:WenQuanYi Zen Hei-9:medium;antialias=True,xft:HanaMinA-9:medium;antialias:True,xft:HanaMinB-9:medium;antialias:True,xft:HanaMinPlus-9:medium;antialias:True
+! URxvt.boldFont:             xft:Source Code Pro for Powerline-9:bold;hinting=True;antialias:True,xft:WenQuanYi Bitmap Song-9:bold;antialias=False,xft:WenQuanYi Zen Hei-9:bold;antialias=True,xft:HanaMinA-9:bold;antialias:True,xft:HanaMinB-9:bold;antialias:True,xft:HanaMinPlus-9:bold;antialias:True
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+! URxvt icon file:
+URxvt.iconFile: /home/armin/.icons/terminal.svg
+
+! URxvt perl extensions:
+URxvt.perl-ext-common: font-size
+
+URxvt.keysym.C-Up:     perl:font-size:increase
+URxvt.keysym.C-Down:   perl:font-size:decrease
+
+URxvt.keysym.C-plus: perl:font-size:increase
+URxvt.keysym.C-minus: perl:font-size:decrease
+
+! URxvt pointer blank delay (seconds):
+URxvt.pointerBlank: true
+URxvt.pointerBlankDelay: 2
+
+
+! VT100 stuff:
+*VT100*font: -*-terminus-medium-*-normal-*-12-*-*-*-*-*-*-*
+*fontMenu*font1*Label: Terminus 12 (Default)
+*VT100*font1: -*-terminus-medium-*-normal-*-12-*-*-*-*-*-*-*
+*fontMenu*font2*Label: Terminus 14
+*VT100*font2: -*-terminus-medium-*-normal-*-14-*-*-*-*-*-*-*
+*fontMenu*font3*Label: Terminus 16
+*VT100*font3: -*-terminus-medium-*-normal-*-16-*-*-*-*-*-*-*
+*fontMenu*font4*Label: Terminus 17
+*VT100*font4: -*-terminus-medium-*-normal-*-17-*-*-*-*-*-*-*
+*fontMenu*font5*Label: Terminus 20
+*VT100*font5: -*-terminus-medium-*-normal-*-20-*-*-*-*-*-*-*
+*fontMenu*font6*Label: Terminus 24
+*VT100*font6: -*-terminus-medium-*-normal-*-24-*-*-*-*-*-*-*
+*VT100*shiftFonts: true
+
+! xscreensaver font:
+xscreensaver.Dialog.headingFont: -*-dejavu sans-bold-r-*-*-12-*-*-*-*-*-*-*
+xscreensaver.Dialog.bodyFont: -*-dejavu sans-medium-r-*-*-12-*-*-*-*-*-*-*
+xscreensaver.Dialog.labelFont: -*-dejavu sans-medium-r-*-*-12-*-*-*-*-*-*-*
+xscreensaver.Dialog.unameFont: -*-dejavu sans-medium-r-*-*-12-*-*-*-*-*-*-*
+xscreensaver.Dialog.buttonFont: -*-dejavu sans-bold-r-*-*-12-*-*-*-*-*-*-*
+xscreensaver.Dialog.dateFont: -*-dejavu sans-medium-r-*-*-12-*-*-*-*-*-*-*
+xscreensaver.passwd.passwdFont: -*-dejavu sans-bold-r-*-*-12-*-*-*-*-*-*-*
+
+! ssh-askpass font:
+x11-ssh-askpass*Dialog.font: -*-terminus-medium-*-*-*-16-*-*-*-*-*-*-*
+x11-ssh-askpass*Button.font: -*-terminus-medium-*-*-*-16-*-*-*-*-*-*-*
+
+! xclock:
+xclock*Foreground:      gray90
+xclock*Background:      #000712
+xclock*Border:          navy blue
+xclock*Highlight:       cornflower blue
+xclock*Hands:           slate blue
+xclock*Mode:            analog
+xclock*minorColor:      gray60
+
+
+
+
+
+
+
+

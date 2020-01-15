@@ -1,0 +1,13 @@
+#!/bin/bash
+
+state="$(synclient | grep -E '^\ *TouchpadOff' | cut -d"=" -f 2 | sed 's/^\ //')"
+
+if [[ "$state" == "1" ]]; then
+    synclient TouchpadOff=0
+else
+    synclient TouchpadOff=1
+fi
+
+
+
+

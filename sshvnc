@@ -1,0 +1,31 @@
+#!/bin/bash
+# 
+# sshvnc - simple VNC SSH wrapper for OS X
+# written by Armin Jenewein <armin@mutt.email>
+# Released under the terms of the
+# GNU General Public License, version 2
+
+# path to VNC viewer .app (in Applications-folder of OS X)
+vnc_client="/Applications/RealVNC/VNC Viewer.app"
+
+# VNC Port (Default: 5901)
+vnc_port="5901"
+
+if [[ "$@" == "" ]]; then
+	echo "This script does not have super cow powers."
+	exit 1
+fi
+
+n="$(ps auxwww | grep ssh | grep -v grep | grep --color=never -- '-L 5901:127.0.0.1:5901' | wc -l)"
+if [[ "$n" -gt 0 ]]; then
+	echo "SSH Tunnel is already up, starting VNC Client..."
+	open "/Applications/RealVNC/VNC Viewer.app" &
+else
+	echo "Adding port forwarding to 127.0.0.1:5901 via SSH Tunnel ... "
+	echo "You can connect via VNC to: \"127.0.0.1:5901\"."
+	echo "Starting VNC Client..."
+	open "$vnc_client" &
+	ssh -T -C -L $vnc_port:127.0.0.1:vnc_port "$1"
+fi
+
+

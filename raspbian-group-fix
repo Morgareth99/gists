@@ -1,0 +1,32 @@
+#!/bin/bash
+
+# Adds a new user to the default "pi" user groups on a fresh
+# Raspbian installation.
+# <armin@mutt.email>
+# GPLv3+
+
+die () {
+  echo "$0 - critical error. Exiting."
+  echo "error-msg: $@"
+  exit 1
+}
+
+newuser="$1"
+
+# check for root
+if [[ "$UID" -ne 0 ]]; then die "Error: need to be root."; fi
+
+# check if user account exists
+id "$newuser" || die "UNIX user account $newuser does not exist."
+
+pi_groups=(pi adm dialout cdrom sudo audio video plugdev games users netdev input spi i2c gpio)
+
+for group in ${pi_groups[@]}; do
+  echo "Adding $newuser to $group ..."
+  usermod -G $group -a $newuser && echo "Successfully added $newuser to $group "
+done
+
+echo "Successfully finished. Goodbye."
+
+
+

@@ -1,0 +1,7 @@
+#!/bin/bash
+# Connects to a remotely running virt-manager via SSH
+
+echo "Connecting to $@ (SSH) ..."
+ssh -X "$@" virt-manager --no-fork
+
+

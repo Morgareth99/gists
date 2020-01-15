@@ -1,0 +1,71 @@
+#!/bin/bash
+# init script for MPD - forked from the Debian Wheezy init script for MPD.
+# written by Armin <armin@mutt.email> - http://unix.porn
+# 
+
+### BEGIN INIT INFO
+# Provides:      mpd
+# Required-Start:  $local_fs $remote_fs
+# Required-Stop:   $local_fs $remote_fs
+# Should-Start:    autofs $network $named alsa-utils pulseaudio
+# Should-Stop:     autofs $network $named alsa-utils pulseaudio
+# Default-Start:   2 3 4 5
+# Default-Stop:    0 1 6
+# Short-Description: MPD
+# Description:     MPD - Music Player Daemon
+### END INIT INFO
+
+. /lib/lsb/init-functions
+PATH=/sbin:/bin:/usr/sbin:/usr/bin
+NAME=mpd
+DAEMON=/usr/bin/mpd
+conffile=/etc/mpd.conf
+START_MPD=true
+# enable debug mode
+# MPD_OPTS=--verbose
+mkdir -p /tmp/mpd
+chown mpd:audio /tmp/mpd
+chmod 755 /tmp/mpd
+mpd_start () {
+  log_daemon_msg "Starting $NAME"
+  start-stop-daemon --start --quiet --oknodo --pidfile "$pidfile" --exec "$DAEMON" -- $MPD_OPTS "$conffile"
+  log_end_msg $?
+}
+mpd_stop () {
+  log_daemon_msg "Stopping $NAME"
+  start-stop-daemon --stop --quiet --oknodo --retry 5 --pidfile "$pidfile" --exec $DAEMON
+  log_end_msg $?
+}
+case "$1" in
+  start)
+    mpd_start
+    ;;
+  stop)
+    mpd_stop
+    ;;
+  status)
+  	status_of_proc -p $pidfile $DAEMON $NAME
+	;;
+  restart|force-reload)
+    mpd_stop
+    mpd_start
+    ;;
+  force-start)
+    mpd_start
+    ;;
+  force-restart)
+    mpd_stop
+    mpd_start
+    ;;
+  force-reload)
+	mpd_stop
+	mpd_start
+	;;
+  *)
+    echo "Usage: $0 {start|start-create-db|stop|restart|force-reload}"
+    exit 2
+    ;;
+esac
+
+
+

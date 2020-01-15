@@ -1,0 +1,29 @@
+#!/bin/bash
+
+m="22:22:22:33:33:68"
+
+init () {
+  sudo hciconfig hci0 up
+}
+
+connect () {
+  sudo hidd --connect "$m" && echo "hidd connection successfully established"
+  sleep 0.3
+}
+
+check () {
+  echo "Checking if Bluetooth Keyboard is alive ..."
+  sudo l2ping -t 2 -c 1 "$m"
+  if [[ "$?" == 0 ]]; then
+		echo "Keyboard is alive. all cool."
+		exit 0
+  fi
+} 
+
+check
+
+init
+connect
+check
+
+

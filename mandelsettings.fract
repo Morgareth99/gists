@@ -1,0 +1,46 @@
+# Mandelbulber settings file
+# version 2.13
+# only modified parameters
+[main_parameters]
+ambient_occlusion_quality 7;
+antialiasing_enabled true;
+basic_fog_color 7100 7400 7c00;
+basic_fog_visibility 0.213796;
+brightness 2.57;
+camera -0.1272600263903247 -0.83297399387682 0.4140431422439871;
+camera_distance_to_target 0.01924961060285576;
+camera_rotation -14.44948747318318 42.26884004748396 3.053332494204976e-13;
+camera_top -0.1678339797964622 -0.6513341664145499 0.7399969992417159;
+contrast 1.06;
+delta_DE_function 2;
+flight_last_to_render 0;
+fog_color_1 ff00 ff00 7f00;
+fog_color_2 ff00 0000 0000;
+fog_color_3 aa00 0000 ff00;
+fov 1.1;
+gamma 0.6899999999999999;
+image_height 1440;
+image_width 2560;
+iteration_fog_brightness_boost 100;
+iteration_fog_color_1 3b00 ff00 0000;
+iteration_fog_color_2 0000 ff00 ff00;
+iteration_fog_color_3 ff00 ff00 0000;
+iteration_fog_enable true;
+iteration_fog_opacity 27542.3;
+iteration_fog_opacity_trim 1;
+keyframe_last_to_render 0;
+mat1_is_defined true;
+raytraced_reflections true;
+target -0.1237056094467627 -0.8191799266692605 0.4269906261086702;
+volumetric_fog_colour_1_distance 0.0134896;
+volumetric_fog_colour_2_distance 0.0269153;
+volumetric_fog_distance_factor 0.0269153;
+[fractal_1]
+IFS_rotation_enabled true;
+power 4.9;
+[fractal_2]
+IFS_rotation_enabled true;
+[fractal_3]
+IFS_rotation_enabled true;
+[fractal_4]
+IFS_rotation_enabled true;

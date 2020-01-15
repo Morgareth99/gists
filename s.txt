@@ -1,0 +1,45 @@
+systemd                                 systemd-growfs                          systemd.netdev                          systemd.syntax
+systemd-analyze                         systemd-growfs@.service                 systemd.network                         systemd-sysctl
+systemd-ask-password                    systemd-halt.service                    systemd-networkd                        systemd-sysctl.service
+systemd-ask-password-console.path       systemd-hibernate-resume                systemd-networkd.service                systemd-system.conf
+systemd-ask-password-console.service    systemd-hibernate-resume-generator      systemd-networkd-wait-online            systemd-system-update-generator
+systemd-ask-password-wall.path          systemd-hibernate-resume@.service       systemd-networkd-wait-online.service    systemd-sysusers
+systemd-ask-password-wall.service       systemd-hibernate.service               systemd-notify                          systemd-sysusers.service
+systemd.automount                       systemd-hostnamed                       systemd.offline-updates                 systemd-sysv-generator
+systemd-backlight                       systemd-hostnamed.service               systemd-path                            systemd.target
+systemd-backlight@.service              systemd-hwdb                            systemd.path                            systemd.time
+systemd-binfmt                          systemd-hybrid-sleep.service            systemd.positive                        systemd-timedated
+systemd-binfmt.service                  systemd-id128                           systemd-poweroff.service                systemd-timedated.service
+systemd-bless-boot-generator            systemd-importd                         systemd.preset                          systemd.timer
+systemd-bless-boot.service              systemd-importd.service                 systemd-quotacheck                      systemd-timesyncd
+systemd-boot                            systemd.index                           systemd-quotacheck.service              systemd-timesyncd.service
+systemd-boot-check-no-failures.service  systemd-inhibit                         systemd-random-seed                     systemd-time-wait-sync
+systemd-cat                             systemd-initctl                         systemd-random-seed.service             systemd-time-wait-sync.service
+systemd-cgls                            systemd-initctl.service                 systemd-rc-local-generator              systemd-tmpfiles
+systemd-cgtop                           systemd-initctl.socket                  systemd-reboot.service                  systemd-tmpfiles-clean.service
+systemd-cryptsetup                      systemd-journald                        systemd-remount-fs                      systemd-tmpfiles-clean.timer
+systemd-cryptsetup-generator            systemd-journald-audit.socket           systemd-remount-fs.service              systemd-tmpfiles-setup-dev.service
+systemd-cryptsetup@.service             systemd-journald-dev-log.socket         systemd-resolved                        systemd-tmpfiles-setup.service
+systemd-debug-generator                 systemd-journald.service                systemd-resolved.service                systemd-tty-ask-password-agent
+systemd-delta                           systemd-journald.socket                 systemd.resource-control                systemd-udevd
+systemd-detect-virt                     systemd.journal-fields                  systemd-rfkill                          systemd-udevd-control.socket
+systemd.device                          systemd-kexec.service                   systemd-rfkill.service                  systemd-udevd-kernel.socket
+systemd.directives                      systemd.kill                            systemd-rfkill.socket                   systemd-udevd.service
+systemd.dnssd                           systemd.link                            systemd-run                             systemd-umount
+systemd-environment-d-generator         systemd-localed                         systemd-run-generator                   systemd.unit
+systemd.environment-generator           systemd-localed.service                 systemd.scope                           systemd-update-utmp
+systemd-escape                          systemd-logind                          systemd.service                         systemd-update-utmp-runlevel.service
+systemd.exec                            systemd-logind.service                  systemd-shutdown                        systemd-update-utmp.service
+systemd-fsck                            systemd-machine-id-commit.service       systemd-sleep                           systemd-user.conf
+systemd-fsckd                           systemd-machine-id-setup                systemd-sleep.conf                      systemd-user-sessions
+systemd-fsckd.service                   systemd-makefs                          systemd.slice                           systemd-user-sessions.service
+systemd-fsckd.socket                    systemd-makefs@.service                 systemd.socket                          systemd-veritysetup
+systemd-fsck-root.service               systemd-makeswap@.service               systemd-socket-activate                 systemd-veritysetup-generator
+systemd-fsck@.service                   systemd-modules-load                    systemd-socket-proxyd                   systemd-veritysetup@.service
+systemd-fstab-generator                 systemd-modules-load.service            systemd.special                         systemd-volatile-root
+systemd.generator                       systemd-mount                           systemd-suspend.service                 systemd-volatile-root.service
+systemd-getty-generator                 systemd.mount                           systemd-suspend-then-hibernate.service
+systemd-gpt-auto-generator              systemd.negative                        systemd.swap
+
+
+

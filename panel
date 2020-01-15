@@ -1,0 +1,8 @@
+#!/bin/bash
+pkill -e -x bspstatus && pkill -e -x dzen2
+sleep 0.2
+$HOME/bin/bspstatus | dzen2 -fn verdana-7 -xs 1 & exit 0 &
+
+
+
+

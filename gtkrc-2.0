@@ -1,0 +1,49 @@
+
+
+
+### ~/.purple/gtkrc-2.0
+#
+# This file automatically written by the Pidgin GTK+ Theme Control plugin.
+# Any changes to this file will be overwritten by the plugin when told to
+# write the settings again.
+# The FAQ (http://developer.pidgin.im/wiki/FAQ) contains some further examples
+# of possible pidgin gtkrc settings.
+# 
+
+
+
+
+gtk-font-name = "Sans 9"
+gtk-tooltip-timeout = 7000
+gtk-enable-tooltips = 1
+style "purplerc_style"
+{
+	GtkIMHtml::hyperlink-color = "#B58484"
+	GtkIMHtml::send-name-color = "#005170"
+	GtkIMHtml::receive-name-color = "#248D69"
+	GtkIMHtml::highlight-name-color = "#A6CF75"
+	GtkIMHtml::action-name-color = "#C08954"
+	GtkIMHtml::typing-notification-color = "#57ABB7"
+	GtkTreeView::horizontal_separator = 0
+}
+widget_class "*" style "purplerc_style"
+style "*pidgin_conv_entry_style"
+{
+	font_name = "Sans 9"
+}
+widget "*pidgin_conv_entry" style "*pidgin_conv_entry_style"
+style "*pidgin_conv_imhtml_style"
+{
+	font_name = "Sans 9"
+}
+widget "*pidgin_conv_imhtml" style "*pidgin_conv_imhtml_style"
+style "*pidgin_request_imhtml_style"
+{
+	font_name = "Sans 9"
+}
+widget "*pidgin_request_imhtml" style "*pidgin_request_imhtml_style"
+style "*pidgin_notify_imhtml_style"
+{
+	font_name = "Sans 9"
+}
+widget "*pidgin_notify_imhtml" style "*pidgin_notify_imhtml_style"

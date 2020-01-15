@@ -1,0 +1,4 @@
+# tmpfs mounts
+tmpfs   /tmp              tmpfs   nodev,nosuid,size=2G          0  0
+tmpfs   /home/armin/.cache tmpfs   nodev,nosuid,size=2G          0  0
+

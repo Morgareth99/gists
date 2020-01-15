@@ -1,0 +1,122 @@
+# ~/.muttrc with 256 color support - <armin@mutt.email>
+
+# general-doesn't-fit stuff
+color normal     brightwhite default
+color error      color115 color236
+color markers    color142 color238
+color tilde      color108 color232
+color status     color144 color234
+
+# index stuff
+color indicator  color108 color236
+color tree       color109 default 
+color index      color188 default ~A
+color index      brightred default ~N
+color index      brightred default ~O
+color index      color174 default ~F
+color index      color174 default ~D
+
+# header stuff
+color hdrdefault color223 default
+color header     color223 default "^Subject"
+
+# gpg stuff
+color body       color188 color232 "^gpg: Good signature.*"
+color body       color115 color236 "^gpg: BAD signature.*"
+color body       color174 color232 "^gpg: Can't check signature.*"
+color body       color174 color232 "^-----BEGIN PGP SIGNED MESSAGE-----"
+color body       color174 color232 "^-----BEGIN PGP SIGNATURE-----"
+color body       color174 color232 "^-----END PGP SIGNED MESSAGE-----"
+color body       color174 color232 "^-----END PGP SIGNATURE-----"
+color body       color174 color232 "^Version: GnuPG.*"
+color body       color174 color232 "^Comment: .*"
+
+# url, email and web stuff
+color body       color174 color232 "(finger|ftp|http|https|news|telnet)://[^ >]*"
+color body       color174 color232 "<URL:[^ ]*>"
+color body       color174 color232 "www\\.[-.a-z0-9]+\\.[a-z][a-z][a-z]?([-_./~a-z0-9]+)?"
+color body       color174 color232 "mailto: *[^ ]+\(\\i?subject=[^ ]+\)?"
+color body       color174 color232 "[-a-z_0-9.%$]+@[-a-z_0-9.]+\\.[-a-z][-a-z]+"
+
+# misc body stuff
+color attachment color174 color232 #Add-ons to the message
+color signature  color223 color232
+
+# quote levels
+color quoted     color108 color232
+color quoted1    color116 color232
+color quoted2    color247 color232
+color quoted3    color108 color232
+color quoted4    color116 color232
+color quoted5    color247 color232
+color quoted6    color108 color232
+color quoted7    color116 color232
+color quoted8    color247 color232
+color quoted9    color108 color232
+
+set from=armin@arminius.org
+set signature='~/.signature'
+
+# set move=yes
+# mailboxes =inbox
+# mailboxes =cron
+# mailboxes =calmar
+# mailboxes =candrian
+# mailboxes =allroundonlineshop
+# mailboxes =prokulus-log
+
+set pager_stop
+set mime_forward=ask-no
+set mime_forward_rest=ask-no
+
+set include=yes
+
+set abort_nosubject=yes
+
+set sort_browser=alpha      #
+
+unignore From: To: subject date cc reply-to
+unignore User-Agent: X-Spam-Status:
+
+set crypt_autosign=no
+set pgp_auto_decode = yes
+set pgp_autoinline = no
+set pgp_check_exit = yes
+set pgp_clearsign_command = "gpg --no-verbose --batch --output - --passphrase-fd 0 --armor --textmode --clearsign %?a?-u %a? %f"
+set pgp_decode_command = "gpg %?p?--passphrase-fd 0? --no-verbose --batch --output - %f"
+set pgp_decrypt_command = "gpg --passphrase-fd 0 --no-verbose --batch --output - %f"
+set pgp_encrypt_only_command = "/usr/lib/mutt/pgpewrap gpg -v --batch --output - --encrypt --textmode --armor --always-trust -- -r %r -- %f"
+set pgp_encrypt_sign_command = "/usr/lib/mutt/pgpewrap gpg --passphrase-fd 0 -v --batch --output - --encrypt --sign %?a?-u %a? --armor --always-trust -- -r %r -- %f"
+set pgp_entry_format = '%4n %t%f %4l/0x%k %-4a %2c %u'
+set pgp_export_command = "gpg --no-verbose --export --armor %r"
+set pgp_getkeys_command = "gpg --recv-keys %r > /dev/null 2>&1"
+set pgp_good_sign = ''
+set pgp_ignore_subkeys = yes
+set pgp_import_command = "gpg --no-verbose --import -v %f"
+set pgp_list_pubring_command = "gpg --no-verbose --batc --with-colons --list-keys %r"
+set pgp_list_secring_command = "gpg --no-verbose --batch --with-colons --list-secret-keys %r"
+set pgp_long_ids = yes
+set pgp_mime_auto = ask-yes
+set pgp_replyinline = no
+set pgp_retainable_sigs = no
+set pgp_show_unusable = yes
+
+# set pgp_sign_as=0xABCDEFGH
+# set pgp_sign_as=0xABCDEFGH
+
+set pgp_sign_command = "gpg --no-verbose --batch --output - --passphrase-fd 0 --armor --detach-sign --textmode %?a?-u %a? %f"
+set pgp_sort_keys = 'address'
+set pgp_strict_enc = yes
+set pgp_timeout = '9999'
+set pgp_use_gpg_agent = no
+set pgp_verify_command = "gpg --no-verbose --batch --output - --verify %s %f"
+set pgp_verify_key_command = "gpg --no-verbose --batch --fingerprint --check-sigs $r"
+
+set folder=~/Mail
+
+macro index d "s=trash\n" "move message to trash"
+macro pager d "s=trash\n" "move message to trash"
+
+set autoedit
+
+

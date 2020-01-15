@@ -1,0 +1,30 @@
+#!/bin/bash
+
+# simple mail log viewer
+
+# print a separator line
+line () {
+  seq 1 $(tput cols) | while read line; do printf '—'; done
+}
+
+while true; do
+	for file in /var/log/mail.err /var/log/mail.info /var/log/mail.warn /var/log/mail.log; do
+		clear
+		tput setaf 0
+		line
+		tput setaf 7
+		echo "mail-logview"
+		tput setaf 0
+		line
+		tput setaf 121
+		echo "$file"
+		tput setaf 0
+		line
+		tput setaf 14
+		tail -n 20 "$file"
+		sleep 2
+		tput setaf 0
+	done
+done
+
+

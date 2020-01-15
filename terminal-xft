@@ -1,0 +1,21 @@
+#!/bin/bash
+
+### Simple wrapper script to start a terminal emulator
+### GitHub: @netzverweigerer
+
+border=14
+shade=20
+
+# font settings
+font="Roboto Mono Medium for Powerline"
+boldfont="${font}"
+fontsize=14
+
+# shell invocation command
+execute="/usr/bin/zsh"
+
+exec urxvt -b "$border" -tr -sh "$shade" +sb -cr '#cc7766' -fg gray90 -bg gray10 -fn "xft:${font}:pixelsize=${fontsize}" -fb "xft:${boldfont}:pixelsize=${fontsize}" -e "${execute}"
+
+
+
+

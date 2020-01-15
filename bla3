@@ -1,0 +1,15 @@
+set $monitor_one DP-1-2
+set $monitor_two DP-1-1
+set $monitor_three eDP-1
+
+workspace 1 output $monitor_one
+workspace 2 output $monitor_one
+workspace 3 output $monitor_one
+workspace 4 output $monitor_one
+workspace 5 output $monitor_two
+workspace 6 output $monitor_two
+workspace 7 output $monitor_two
+workspace 8 output $monitor_two
+workspace 9 output $monitor_two
+
+

@@ -1,0 +1,16 @@
+#!/bin/bash
+# lists packages containing a specific file (for looking up a package containing a
+# dependency file of another package, useful for missing library packages).
+# <armin@mutt.email>
+args="$@"
+dephandler () {
+	for i in $@; do
+		echo "$i"
+	done
+}
+for arg in $args; do
+  echo "--- Looking up packages containing $arg ..."
+	apt-file search ${arg} | grep -E "/$arg$" | cut -d":" -f 1 | xargs | while read line; do dephandler "$line"; done
+done
+
+

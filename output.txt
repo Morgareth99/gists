@@ -1,0 +1,33 @@
+dev.cpu.3.cx_usage: 14.28% 85.71% last 379us
+dev.cpu.3.cx_lowest: C3
+dev.cpu.3.cx_supported: C1/1/1 C2/3/104
+dev.cpu.3.%parent: acpi0
+dev.cpu.3.%pnpinfo: _HID=none _UID=0
+dev.cpu.3.%location: handle=\_PR_.CPU3
+dev.cpu.3.%driver: cpu
+dev.cpu.3.%desc: ACPI CPU
+dev.cpu.2.cx_usage: 0.00% 100.00% last 794us
+dev.cpu.2.cx_lowest: C3
+dev.cpu.2.cx_supported: C1/1/1 C2/3/104
+dev.cpu.2.%parent: acpi0
+dev.cpu.2.%pnpinfo: _HID=none _UID=0
+dev.cpu.2.%location: handle=\_PR_.CPU2
+dev.cpu.2.%driver: cpu
+dev.cpu.2.%desc: ACPI CPU
+dev.cpu.1.cx_usage: 59.45% 40.54% last 726us
+dev.cpu.1.cx_lowest: C3
+dev.cpu.1.cx_supported: C1/1/1 C2/3/104
+dev.cpu.1.%parent: acpi0
+dev.cpu.1.%pnpinfo: _HID=none _UID=0
+dev.cpu.1.%location: handle=\_PR_.CPU1
+dev.cpu.1.%driver: cpu
+dev.cpu.1.%desc: ACPI CPU
+dev.cpu.0.cx_usage: 71.05% 28.94% last 990us
+dev.cpu.0.cx_lowest: C3
+dev.cpu.0.cx_supported: C1/1/1 C2/3/104
+dev.cpu.0.%parent: acpi0
+dev.cpu.0.%pnpinfo: _HID=none _UID=0
+dev.cpu.0.%location: handle=\_PR_.CPU0
+dev.cpu.0.%driver: cpu
+dev.cpu.0.%desc: ACPI CPU
+dev.cpu.%parent: 

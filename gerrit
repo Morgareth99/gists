@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# Simple SSH wrapper script for Gerrit - <armin@mutt.email>
+
+username="armin"
+gerrithost="gerrit.lan"
+
+if [[ "$#" == 0 ]]; then
+ssh -p 29418 "${username}"@"$gerrithost" gerrit --help
+else
+ssh -p 29418 "${username}"@"$gerrithost" gerrit "$@"
+fi
+
+
+

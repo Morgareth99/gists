@@ -1,0 +1,16 @@
+#!/bin/bash
+# simple key/value mapper helper tool
+# simply outputs arg1=arg2 arg3=arg4 [...]
+# 
+# usage: keyvalue key value key value [...]
+# 
+
+while [[ $# > 1 ]]; do
+	key="$1"
+	shift
+	value="$1"
+	shift
+	echo -n "$key="
+	echo "$value"
+done
+

@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# wt - prints window title of active window under X.
+# Written 20140905 by Armin <netzverweigerer@github>
+
+# font
+# osd_font="-*-terminus-*-*-*-*-*-320-*-*-*-*-*-*"
+# osd_font="-*-terminus-*-*-*-*-*-320-*-*-*-*-*-*"
+
+id="$(xprop -root _NET_ACTIVE_WINDOW)"
+
+if [[ "$id" =~ .*0x0$ ]]; then echo "Empty Workspace"; exit 0; fi
+
+# window title name
+title="$(xprop -id $(echo "$id" | cut -d ' ' -f 5) WM_NAME | cut -d"=" -f 2- | cut -b 3- | rev | cut -b 2- | rev)"
+
+# window class name
+class="$(xprop -id $(echo "$id" | cut -d ' ' -f 5) | grep -i ^wm_class | rev | cut -b 2- | cut -d"," -f 1 | rev | cut -b 3-)"
+
+echo "$title :: [$class] ::    "
+
+

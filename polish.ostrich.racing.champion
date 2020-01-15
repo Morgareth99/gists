@@ -1,0 +1,9 @@
+parameter     result
+-----------   ------------------------------
+$name         polish.ostrich.racing.champion
+${name#*.}           ostrich.racing.champion
+${name##*.}                         champion
+${name%%.*}   polish
+${name%.*}    polish.ostrich.racing
+
+Origin: Greg's Wiki: http://mywiki.wooledge.org/BashFAQ/073

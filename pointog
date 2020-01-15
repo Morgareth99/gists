@@ -1,0 +1,41 @@
+#!/bin/sh
+
+# pointog - toggles a pointer device on/off
+# Written by: netzverweigerer@GitHub
+
+# path to icons (for libnotify popups)
+dirpath="$HOME/.icons"
+
+# set pointer device ID
+id=13
+
+# enable pointer device
+enable () {
+	echo "Enabling..."
+	xinput set-prop $id 'Device Enabled' 1
+}
+
+# disable pointer device
+disable () {
+	echo "Disabling..."
+	xinput set-prop $id 'Device Enabled' 0
+}
+
+# get current state
+state="$(xinput list-props $id | grep 'Device Enabled' | rev | cut -b 1)"
+
+case "$state" in
+	1)
+		disable
+		notify-send -t 2000 -i $dirpath/tptog_icon_off.png "Pointer DISABLED"
+	;;
+	0)
+		enable
+		notify-send -t 2000 -i $dirpath/tptog_icon_on.png "Pointer ENABLED"
+	;;
+	*)
+		echo "Unknown"
+	;;
+esac
+
+

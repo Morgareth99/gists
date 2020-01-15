@@ -1,0 +1,14 @@
+alias radio_news="mpv -playlist http://minnesota.publicradio.org/tools/play/streams/news.pls" # MPR News 
+alias radio_current="mpv -playlist http://minnesota.publicradio.org/tools/play/streams/the_current.pls" # The Current 
+alias radio_classical="mpv -playlist http://minnesota.publicradio.org/tools/play/streams/classical.pls" # Classical MPR 
+alias radio_localcurrent="mpv -playlist http://minnesota.publicradio.org/tools/play/streams/local.pls" # Local Current 
+alias radio_heartland="mpv -playlist http://minnesota.publicradio.org/tools/play/streams/radio_heartland.pls" # MPR Radio Heartland 
+alias radio_wonderground="mpv http://wondergroundstream2.publicradio.org/wonderground" # MPR Wonderground Windows Media 
+alias radio_choral="mpv -playlist http://choralstream1.publicradio.org/choral.m3u" # Clasical MPR Choral
+alias radio_wefunk="mpv -playlist http://www.wefunkradio.com/play/shoutcast.pls" # WEFUNK Radio MP3 64K
+alias radio_sleepbot="mpv -playlist http://sleepbot.com/ambience/cgi/listen.cgi/listen.pls" # Sleepbot Environmental Broadcast 56K MP3
+alias radio_groovesalad="mpv -playlist http://somafm.com/groovesalad130.pls" # Soma FM Groove Salad iTunes AAC 128K
+alias radio_dronezone="mpv -playlist http://somafm.com/dronezone130.pls" # Soma FM Drone Zone iTunes AAC 128K
+alias radio_lush="mpv -playlist http://somafm.com/lush130.pls" # Soma FM Lush iTunes AAC 128K
+alias radio_sonicuniverse="mpv -playlist http://somafm.com/sonicuniverse.pls" # Soma FM Sonic Universe iTunes AAC 128K
+

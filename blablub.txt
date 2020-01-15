@@ -1,0 +1,10 @@
+syntax:~ dd if=/dev/zero of=blablub.img seek=100M bs=1 count=0
+0+0 records in
+0+0 records out
+0 bytes copied, 0.0001179 s, 0.0 kB/s
+syntax:~ ls -alrt blablub.img 
+-rw-r--r-- 1 armin armin 104857600 Dec 20 15:35 blablub.img
+syntax:~ du -sh blablub.img
+0       blablub.img
+syntax:~ 
+

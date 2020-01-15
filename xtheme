@@ -1,0 +1,201 @@
+#!/bin/bash
+#
+# [xtheme] xtremely lightweight Xresources color scheme manager
+#
+# Copyright (C) 2016 Armin Jenewein <armin@m2m.pm>
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2, or (at your option)
+# any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, see <http://www.gnu.org/licenses/>.
+#
+
+banner () {
+  tput setaf 4
+  echo -n "["
+  tput setaf 5
+  echo -n "xtheme"
+  tput setaf 4
+  echo -n "]  "
+  tput sgr0
+}
+
+banner
+
+# file locations
+dir="$(readlink -f ${0%/*})"
+currentfile="$dir/current"
+globalsfile="$dir/globals"
+themesdir="$dir/themes/"
+
+# show usage information
+usage () {
+  tput setaf 3
+  echo "Usage: xtheme [--get|--set <themename>|--help]"
+  tput setaf 6
+  echo ""
+  echo "       --get|--status     - get current theme name / status"
+  echo "       --set <themename>  - set theme"
+  echo "       --reload|--reset   - reload / re-set last set theme, then reload X11 resource database"
+  echo "       --list             - list available themes"
+  echo "       --menu             - display a curses-like menu chooser with available themes"
+  echo "       --edit             - edit Xresources globals file, then reload X11 resource database"
+  echo "       --help             - this help screen"
+}
+
+# throw an error message (and exit)
+error () {
+  tput setaf 9
+  echo "$0: Error: $@"
+}
+
+# check if themes directory exists
+if [ ! -d "$themesdir" ]; then
+  error "Themes directory $themesdir does not exist. Exiting."
+  exit 1
+fi
+
+# list currently installed themes
+listthemes () {
+  echo "List of installed themes: "
+  echo
+  cd $themesdir
+  tput setaf 14
+  ls
+  exit 0
+}
+
+# set theme
+settheme () {
+  # set theme name from command line
+  name="$1"
+
+  echo "Setting theme: $name"
+
+  # check if theme file is present
+  if [ ! -f "$themesdir/${name}" ]; then
+    error "Theme not found: ${name}"
+    banner
+    tput setaf 14
+    echo "Use --list to get a list of available themes."
+    exit 1
+  fi
+
+  # cleanup
+  xrdb -remove
+  if [ -L $currentfile ]; then
+    rm -f -v $currentfile
+  else
+    mv -v "$currentfile" "${currentfile}.xtheme.orig"
+  fi
+
+  # create symlink for current theme
+  echo -n "Creating symbolic link for new theme... "
+  ln -v -s "$(readlink -f $themesdir/${name})" "$currentfile"
+  echo "done."
+
+  # merge current / globals and feed to xrdb
+  echo -n "xrdb: Loading new Xresources definitions... "
+  cat $globalsfile > /tmp/xres.tmp
+  cat $currentfile >> /tmp/xres.tmp
+  mv /tmp/xres.tmp $HOME/.Xresources
+  xrdb < $HOME/.Xresources 2>/dev/null
+  echo "done."
+}
+
+# gets current theme
+get () {
+  /bin/ls -al "$currentfile" | /bin/sed -E 's/^.*\ ->\ (.*)$/\1/;s/.*\/(.*)/\1/'
+}
+
+reload () {
+  echo "re-loading settings..."
+  current="$(get)"
+  settheme "$current"
+}
+
+# exit if user hits the "cancel" button
+cancel () {
+  echo "User hit the <Cancel> button, exiting..."
+  exit 0
+}
+
+showmenu () {
+  cd "$themesdir"
+  files=(*)
+  results=""
+  n=0
+  current="$(get)"
+  for i in "${files[@]}"; do
+    if [[ "$current" == $i ]]; then
+    current_i="$n"
+    fi
+    results="$results $n $i"
+    let n+=1
+  done
+  a=$(dialog --default-item "$current_i" --stdout --menu "[xtheme] (Current Theme: $current)" 20 70 20 $(echo $results))
+  if [[ ! "$a" ]]; then
+    cancel
+    exit 1
+  fi
+  theme="${files[$a]}"
+  settheme "$theme"
+  $0 --menu
+}
+
+# parse commandline arguments
+while [ $# -gt 0 ]; do
+  case "$1" in
+    --set)
+      shift
+      settheme "$1"
+      exit 0
+      ;;
+    --edit)
+      shift
+      echo "Opening globals file in vim..."
+      vim "$globalsfile"
+      reload
+      exit 0
+      ;;
+    --get|--status)
+      shift
+      get
+      exit 0
+    ;;
+    --reload|--reset)
+      shift
+      reload
+      exit 0
+    ;;
+    --list)
+      listthemes
+    ;;
+    --help)
+      usage
+      exit 1
+    ;;
+    --menu)
+      while true; do
+      showmenu
+      done
+    ;;
+    *)
+      usage
+      exit 1
+    ;;
+  esac
+done
+
+usage
+exit 1
+
+

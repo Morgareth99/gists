@@ -1,0 +1,127 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
+# bspstatus (dzen2 status script), written by <armin@mutt.email>
+# http://unix.porn/
+
+import psutil
+import sys
+import time
+import os
+
+class bspstatus(object):
+    def __init__(self):
+        self.text = ""
+        self.fg = '#888888'
+        self.warning = '#bbaa88'
+        self.critical= '#dd8888'
+    def add(self,line):
+        line = str(line)
+        if "no identities" in line:
+          line = '^fg(' + self.critical + ')' + line
+        if "warning" in line or "discharging" in line:
+          line = '^fg(' + self.warning+ ')' + line
+        if "critical" in line:
+          line = '^fg(' + self.critical + ')' + line
+        self.text = self.text + line
+    def get(self):
+        print(self.text.strip())
+    def sep(self):
+        self.text = self.text + '^fg(#555555) ⠿ ^fg(' + self.fg + ")"
+
+class info(object):
+    def __init__(self):
+        pass
+    def run(self,command):
+        import subprocess
+        command = command.split(' ')
+        proc = subprocess.Popen(command, stdout=subprocess.PIPE)
+        out = proc.communicate()[0]
+        return str(out)
+    def cpu(self):
+        usage = psutil.cpu_percent()
+        if usage > 25:
+            cpu = 'CPU: ' + str(usage) + "%" + " (warning)"
+        if usage > 60:
+            cpu = 'CPU: ' + str(usage) + "%" + " (critical)"
+        else:
+            cpu = 'CPU: ' + str(usage) + "%"
+        return cpu 
+    def workspace(self):
+        workspace = int(self.run('xprop -root _NET_CURRENT_DESKTOP').split("=")[1].split('\\')[0]) + 1
+        return('Workspace: ' + str(workspace))
+    def date(self):
+        out = self.run('date')
+        a = str(out).strip().split( )[3]
+        b = a[0:5]
+        return b
+    def bat(self):
+        with open('/sys/class/power_supply/BAT0/energy_full', 'r') as f:
+            lines = f.readlines()
+            for line in lines:
+                try:
+                    i = int(line)
+                except:
+                    i = 0
+        full = i
+        with open('/sys/class/power_supply/BAT0/energy_now', 'r') as f:
+            lines = f.readlines()
+            for line in lines:
+                try:
+                    i = int(line)
+                except:
+                    i = 0
+        now = i
+        with open('/sys/class/power_supply/BAT0/status', 'r') as f:
+            lines = f.readlines()
+            status = ' '.join(lines).strip()
+        remaining = now / full * 100.0
+        remaining = str(remaining)[:4]
+        text = remaining + "% " + "[" + status + "]" 
+        return text
+    def wifi(self):
+        try:
+            output = self.run('/sbin/iwconfig wlp3s0').split('\n')
+            for line in output:
+                if "ESSID:" in line:
+                    return "wifi: Connected [" + line.split('"')[1] + "]"
+                    break
+            return "wifi: disconnected"
+        except:
+            return "not connected"
+
+while True:
+    b = bspstatus()
+    i = info()
+    b.fg = '#77cc77'
+    workspace = i.workspace()
+    b.add(workspace)
+    b.sep()
+    b.fg = '#229922'
+    cpu = i.cpu()
+    b.add(cpu)
+    b.sep()
+    b.fg = '#229922'
+    b.sep()
+    b.fg = '#aaaaaa'
+    b.sep()
+    b.fg = '#777777'
+    b.sep()
+    b.fg = '#cccccc'
+    wifi= i.wifi()
+    b.fg = '#cccccc'
+    b.add(wifi)
+    b.sep()
+    b.fg = '#cccccc'
+    b.sep()
+    b.fg = '#cccccc'
+    date = i.date()
+    b.add(date)
+    b.sep()
+    bat = i.bat()
+    b.add(bat)
+    b.get()
+    sys.stdout.flush()
+    time.sleep(3)
+
+

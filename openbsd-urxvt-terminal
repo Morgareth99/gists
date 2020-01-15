@@ -1,0 +1,6 @@
+#!/bin/sh
+# starts an rxvt-unicode terminal emulator with sane defaults and terminus as font
+# used on OpenBSD 5.9
+
+exec urxvt -fn '-xos4-terminus-medium-r-normal--0-0-72-72-c-0-iso10646-1' -fb '-xos4-terminus-medium-r-normal--0-0-72-72-c-0-iso10646-1' +sb -fg gray90 -bg gray10
+

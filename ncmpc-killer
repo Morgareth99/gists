@@ -1,0 +1,41 @@
+#!/usr/bin/env bash
+
+# dirty hack to prevent ncmpc from eating 99% cpu because of a strange bug
+# used with crontab like: * * * * * /path/to/this/script
+
+logfile="/tmp/ncmpc-killer.log"
+
+# use output to logfile
+echo "Writing log output to ${logfile}..."
+exec >$logfile 2>&1
+
+date
+
+case "$(uname)" in
+  Darwin)
+    # use pidof from homebrew on OSX
+    pidof="/usr/local/bin/pidof"
+  ;;
+  *)
+    # use /bin/pidof on linux systems
+    pidof="/bin/pidof"
+  ;;
+esac
+
+num="$("$pidof" ncmpc | wc -w | sed 's/ //g')"
+
+case "$num" in
+0)
+  echo "ncmpc not running"
+;;
+*)
+  ncmpc_cpu_usage="$(ps axuwww | grep ncmpc | head -n 1 | grep -v grep | sed -E 's/ +/ /g' | cut -d" " -f 3 | cut -d"." -f 1)"
+  echo "CPU usage of ncmpc: $ncmpc_cpu_usage"
+  if [[ "$ncmpc_cpu_usage" -gt 90 ]]; then
+    echo "Killing ncmpc..."
+    killall -9 ncmpc
+  fi
+;;
+esac
+
+

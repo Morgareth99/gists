@@ -1,0 +1,17 @@
+#!/bin/bash
+
+p () {
+tput setaf 1
+echo "$(date)"
+tput setaf 3
+
+}
+
+tput setaf 3
+while true; do
+p "---"
+"$@"
+echo
+sleep 10
+done
+

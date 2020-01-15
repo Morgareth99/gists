@@ -1,0 +1,17 @@
+#!/bin/sh
+case "$1" in
+  on)
+    /usr/home/armin/git/dotfiles-electro7/.i3/lemonbar/i3_lemonbar.sh &
+    exit 0
+  ;;
+  off)
+    pkill -x lemonbar
+    exit 0
+  ;;
+  *)
+    echo "$0: Argument required (on|off). Exiting gracefully."
+    exit 127
+esac
+
+
+

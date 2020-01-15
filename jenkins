@@ -1,0 +1,9 @@
+#!/usr/bin/env python
+
+import jenkins
+import sys
+
+j = jenkins.Jenkins('http://<jenkinshostname>', '<username>', '<password>,')
+j.build_job('jobname', {'parameter': 'value'})
+
+

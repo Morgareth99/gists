@@ -1,0 +1,164 @@
+# click on the desktop to get menus
+OnDesktop Mouse1 :HideMenus
+OnDesktop Mouse2 :WorkspaceMenu
+OnDesktop Mouse3 :RootMenu
+
+# scroll on the desktop to change workspaces
+OnDesktop Mouse4 :PrevWorkspace
+OnDesktop Mouse5 :NextWorkspace
+
+# scroll on the toolbar to change current window
+OnToolbar Mouse4 :PrevWindow {static groups} (iconhidden=no)
+OnToolbar Mouse5 :NextWindow {static groups} (iconhidden=no)
+
+# alt + left/right click to move/resize a window
+OnWindow Mod4 Mouse1 :MacroCmd {Raise} {Focus} {StartMoving}
+OnWindowBorder Move4 :StartMoving
+
+OnWindow Mod4 Mouse3 :MacroCmd {Raise} {Focus} {StartResizing NearestCorner}
+OnLeftGrip Move1 :StartResizing bottomleft
+OnRightGrip Move1 :StartResizing bottomright
+
+# alt + middle click to lower the window
+OnWindow Mod4 Mouse2 :Lower
+
+# control-click a window's titlebar and drag to attach windows
+OnTitlebar Mouse2 :StartTabbing
+
+# double click on the titlebar to shade
+OnTitlebar Double :Shade
+
+# left click on the titlebar to move the window
+OnTitlebar Mouse1 :MacroCmd {Raise} {Focus} {ActivateTab}
+OnTitlebar Move1  :StartMoving
+
+# middle click on the titlebar to lower
+OnTitlebar Mouse2 :Lower
+
+# right click on the titlebar for a menu of options
+OnTitlebar Mouse3 :WindowMenu
+
+# alt-tab
+Mod4 Tab :NextWindow {groups} (workspace=[current])
+Mod4 Shift Tab :PrevWindow {groups} (workspace=[current])
+
+# cycle through tabs in the current window
+Mod4 Shift J :NextTab
+Mod4 Shift K :PrevTab
+
+Mod4 A :ArrangeWindowsVertical
+Mod4 Shift A :ArrangeWindows
+
+Mod4 S :ArrangeWindowsStackTop
+Mod4 Shift S :ArrangeWindowsStackBottom
+
+Mod4 Y :ArrangeWindowsStackLeft
+Mod4 Shift Y :ArrangeWindowsStackTop
+
+Mod4 H :FocusLeft
+Mod4 J :FocusDown
+Mod4 K :FocusUp
+Mod4 L :FocusRight
+
+# go to a specific tab in the current window
+Mod2 1 :Tab 1
+Mod2 2 :Tab 2
+Mod2 3 :Tab 3
+Mod2 4 :Tab 4
+Mod2 5 :Tab 5
+Mod2 6 :Tab 6
+Mod2 7 :Tab 7
+Mod2 8 :Tab 8
+Mod2 9 :Tab 9
+
+Mod4 W :Exec $HOME/bin/wp
+
+# open a terminal
+Mod4 T :Exec $HOME/bin/terminal
+Mod4 Return :Maximize
+
+# open a dialog to run programs
+#Mod4 space :RootMenu
+Mod4 space :Exec dmenu_run -nb '#222' -f -nf '#aaa' -sb '#333' -fn '-*-fixed-medium-*-*-*-*-100-*-*-*-*-*-*' -b
+
+# volume settings, using common keycodes
+# if these don't work, use xev to find out your real keycodes
+176 :Exec amixer sset Master,0 1+
+174 :Exec amixer sset Master,0 1-
+160 :Exec amixer sset Master,0 toggle
+
+# current window commands
+Mod4 X :Close
+Mod1 F4 :Close
+Mod1 Shift X :Kill
+Mod4 M :Minimize
+Mod4 f :Fullscreen
+Mod4 Shift M :Deiconify AllWorkspaces Current
+Mod4 Return :Maximize
+
+Mod4 R :Reconfigure
+Mod4 Shift R :Restart
+
+Mod4 C :Exec $HOME/bin/compositing on
+Mod4 Shift C :Exec $HOME/bin/compositing off
+
+# open the window menu
+Control space :WindowMenu
+
+
+# exit fluxbox
+Control Mod1 Delete :Exit
+
+# change to previous/next workspace
+Mod4 P :PrevWorkspace
+Mod4 N :NextWorkspace
+
+# send the current window to previous/next workspace
+Mod4 Shift P :TakeToPrevWorkspace
+Mod4 Shift N :TakeToNextWorkspace
+
+# send the current window and follow it to previous/next workspace
+# Control Mod4 Left :TakeToPrevWorkspace
+# Control Mod4 Right :TakeToNextWorkspace
+
+# change to a specific workspace
+Mod4 1 :Workspace 1
+Mod4 2 :Workspace 2
+Mod4 3 :Workspace 3
+Mod4 4 :Workspace 4
+Mod4 5 :Workspace 5
+Mod4 6 :Workspace 6
+Mod4 7 :Workspace 7
+Mod4 8 :Workspace 8
+Mod4 9 :Workspace 9
+
+# send the current window to a specific workspace
+Mod4 F1 :SendToWorkspace 1
+Mod4 F2 :SendToWorkspace 2
+Mod4 F3 :SendToWorkspace 3
+Mod4 F4 :SendToWorkspace 4
+Mod4 F5 :SendToWorkspace 5
+Mod4 F6 :SendToWorkspace 6
+Mod4 F7 :SendToWorkspace 7
+Mod4 F8 :SendToWorkspace 8
+Mod4 F9 :SendToWorkspace 9
+Mod4 F10 :SendToWorkspace 10
+Mod4 F11 :SendToWorkspace 11
+Mod4 F12 :SendToWorkspace 12
+
+# send the current window and change to a specific workspace
+Control Mod4 F1 :TakeToWorkspace 1
+Control Mod4 F2 :TakeToWorkspace 2
+Control Mod4 F3 :TakeToWorkspace 3
+Control Mod4 F4 :TakeToWorkspace 4
+Control Mod4 F5 :TakeToWorkspace 5
+Control Mod4 F6 :TakeToWorkspace 6
+Control Mod4 F7 :TakeToWorkspace 7
+Control Mod4 F8 :TakeToWorkspace 8
+Control Mod4 F9 :TakeToWorkspace 9
+Control Mod4 F10 :TakeToWorkspace 10
+Control Mod4 F11 :TakeToWorkspace 11
+Control Mod4 F12 :TakeToWorkspace 12
+
+XF86Launch1 :ExecCommand $HOME/git/lock/lock
+

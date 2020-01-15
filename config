@@ -1,0 +1,296 @@
+# i3 custom configuration file
+# vim: ts=2 sw=2 sts=2 et 
+# armin@arminius.org
+
+set $mod Mod4
+set $term $HOME/bin/terminal
+
+#set $monitor_one DP-1-2
+#set $monitor_two DP-1-1
+#set $monitor_three eDP-1
+
+#workspace 1 output $monitor_one
+#workspace 2 output $monitor_one
+#workspace 3 output $monitor_one
+#workspace 4 output $monitor_one
+#workspace 5 output $monitor_two
+#workspace 6 output $monitor_two
+#workspace 7 output $monitor_two
+#workspace 8 output $monitor_two
+#workspace 9 output $monitor_two
+
+# font
+# list of artwiz fonts:
+# anorexia aqui cure drift edges fkp gelly glisp glispbold kates
+# lime mintsmild mintsstrong nu smoothansi snap
+# set $font gelly
+#set $font gelly.de
+#set $font heb6x13
+font pango: M+ 1m, FontAwesome, Ionicons, 9
+#font $font
+
+# define commandline for dmenu (application starter)
+#set $dmenucommand dmenu_run -fn gelly.de -l 15 -nb '#262626' -nf '#aaaaaa' -sb '#333333' -sf '#cccccc'
+set $dmenucommand rofi -show run
+bindsym $mod+space exec $dmenucommand
+
+# modifier in floating mode
+floating_modifier $mod
+
+# switch off annoying "focus follows mouse"
+focus_follows_mouse yes
+
+# start terminal with mod-enter
+bindsym $mod+Return exec $term
+bindsym Mod1+F4 kill
+bindsym $mod+x kill
+
+# change input focus
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move window
+bindsym $mod+Shift+H move left
+bindsym $mod+Shift+J move down
+bindsym $mod+Shift+K move up
+bindsym $mod+Shift+L move right
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# set split mode
+bindsym $mod+Shift+v split h
+bindsym $mod+v split v
+
+# fullscreen mode
+bindsym $mod+f fullscreen
+
+# change layout
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout default
+
+bindsym $mod+Shift+space floating toggle
+bindsym $mod+Tab focus right
+bindsym $mod+Shift+Tab focus left
+bindsym Mod1+Tab focus right
+bindsym Mod1+Shift+Tab focus left
+bindsym $mod+a focus parent
+bindsym $mod+Shift+a focus child
+
+# additional keybindings
+bindsym $mod+n workspace next
+bindsym $mod+p workspace prev
+
+bindsym Ctrl+Mod1+Delete exec ~/bin/lock
+bindsym Ctrl+Mod1+l exec ~/bin/lock
+
+# reload / restart
+bindsym $mod+Shift+C reload
+bindsym $mod+Shift+R exec $HOME/bin/i3restart; restart
+
+# floating windows
+bindsym $mod+m mode "move" floating
+
+# move floating windows
+mode "move" {
+  bindsym $mod+Tab focus right
+  bindsym Left move left
+  bindsym Down move down
+  bindsym Up move up
+  bindsym Right move right
+  bindsym h move left
+  bindsym j move down
+  bindsym k move up
+  bindsym l move right
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+}
+
+# workaround to fix (most) of the weirdness of the broken way "resize" in i3
+# works:
+
+bindsym $mod+r mode resize
+
+mode "resize" {
+# These bindings trigger as soon as you enter the resize mode
+
+# They resize the border in the direction you pressed, e.g.
+# when pressing left, the window is resized so that it has
+# more space on its left
+bindsym h resize shrink left 10 px or 10 ppt
+bindsym Shift+H resize grow left 10 px or 10 ppt
+
+bindsym j resize shrink down 10 px or 10 ppt
+bindsym Shift+J resize grow down 10 px or 10 ppt
+
+bindsym k resize shrink up 10 px or 10 ppt
+bindsym Shift+K resize grow up 10 px or 10 ppt
+
+bindsym l resize shrink right 10 px or 10 ppt
+bindsym Shift+L resize grow right 10 px or 10 ppt
+
+# same bindings, but for the arrow keys
+bindsym Left resize shrink left 10 px or 10 ppt
+bindsym Shift+Left resize grow left 10 px or 10 ppt
+
+bindsym Down resize shrink down 10 px or 10 ppt
+bindsym Shift+Down resize grow down 10 px or 10 ppt
+
+bindsym Up resize shrink up 10 px or 10 ppt
+bindsym Shift+Up resize grow up 10 px or 10 ppt
+
+bindsym Right resize shrink right 10 px or 10 ppt
+bindsym Shift+Right resize grow right 10 px or 10 ppt
+
+# back to normal: Enter or Escape
+bindsym Return mode "default"
+bindsym Escape mode "default"
+}
+
+
+
+# client colors
+# color mapping (do not edit!)
+
+set_from_resource $fg i3wm.color7 #f0f0f0
+set_from_resource $bg i3wm.color2 #a0a0a0
+
+set_from_resource $color01 i3wm.color1 #888888
+set_from_resource $color02 i3wm.color2 #888888
+set_from_resource $color03 i3wm.color3 #888888
+set_from_resource $color04 i3wm.color4 #888888
+set_from_resource $color05 i3wm.color5 #888888
+set_from_resource $color06 i3wm.color6 #888888
+set_from_resource $color07 i3wm.color7 #888888
+set_from_resource $color08 i3wm.color8 #888888
+set_from_resource $color09 i3wm.color9 #888888
+set_from_resource $color10 i3wm.color10 #888888
+set_from_resource $color11 i3wm.color11 #888888
+set_from_resource $color12 i3wm.color12 #888888
+set_from_resource $color13 i3wm.color13 #888888
+# numix:
+#set_from_resource $color14 i3wm.color14 #d64a39
+# arc-dark:
+set_from_resource $color14 i3wm.color14 #4084d6
+set_from_resource $color15 i3wm.color15 #888888
+
+set $bg #222222
+set $fg #cccccc
+
+
+# class                 border  backgr. text indicator child_border
+client.focused          $bg     $bg     $fg  #a6e22e #a6e22e
+client.focused_inactive $bg     $bg     $fg  $bg       $bg
+client.unfocused        $bg     $bg     $fg  $bg       $bg
+client.urgent           $bg     $bg     $fg  $bg       $bg
+client.placeholder      $bg     $bg     $fg  $bg       $bg
+
+client.background       $bg
+
+### oldschool color settings
+# client.focused          #555555 #555555 #ffffff #555555   #888888
+# client.focused_inactive #333333 #333333 #ffffff #333333
+# client.unfocused        #222222 #222222 #ffffff #222222
+# client.urgent           #222222 #222222 #ffffff #222222   #FF0000
+
+
+# i3bar / i3blocks
+# top bar
+bar {
+  position top
+  workspace_buttons yes
+  status_command i3blocks -c ~/.i3blocks.conf
+  colors {
+    background $bg
+    statusline $fg
+    focused_workspace  #a6e22e #222222 #ffffff
+    active_workspace   #a88888 #3f3f3f #ffcfaf
+    inactive_workspace #636363 #212121 #dcdccc
+    urgent_workspace   #dca3a3 #3f3f3f #dca3a3
+  }
+}
+
+# set application specific attributes
+for_window [class="VirtualBox"] floating enable
+for_window [class="Gimp"] floating enable
+for_window [class="Lxappearance"] floating enable
+#for_window [class="TelegramDesktop"] floating enable
+#for_window [class="Gajim"] floating enable
+
+# force floating mode on some workspaces
+#for_window [ workspace="7" ] floating enable
+for_window [ workspace="8" ] floating enable
+for_window [ workspace="9" ] floating enable
+
+#for_window [class="Iceweasel"] move container to workspace $ws2
+#for_window [class="Icedove"] move container to workspace $ws3
+
+# use 1px border around new windows
+# new_window 1pixel
+new_window pixel 2
+
+# same for floating windows
+new_float pixel 2
+
+# default workspace layout
+# <default|stacking|tabbed>
+workspace_layout default
+
+# default gaps
+gaps inner 15
+gaps outer 5
+
+# workspace keybindings
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+Shift+exclam move container to workspace 1
+bindsym $mod+Shift+quotedbl move container to workspace 2
+bindsym $mod+Shift+section move container to workspace 3
+bindsym $mod+Shift+dollar move container to workspace 4
+bindsym $mod+Shift+percent move container to workspace 5
+bindsym $mod+Shift+ampersand move container to workspace 6
+bindsym $mod+Shift+slash move container to workspace 7
+bindsym $mod+Shift+parenleft move container to workspace 8
+bindsym $mod+Shift+parenright move container to workspace 9
+
+# other keybindings
+bindsym $mod+F11 exec i3-msg gaps inner current minus 5
+bindsym $mod+F12 exec i3-msg gaps inner current plus 5
+bindsym $mod+F9 exec i3-msg gaps outer current minus 5
+bindsym $mod+F10 exec i3-msg gaps outer current plus 5
+bindsym Control+Shift+Mod1+h move workspace to output left
+bindsym Control+Shift+Mod1+l move workspace to output right
+bindsym Control+Mod1+Home exec /home/armin/bin/volume increase
+bindsym Control+Mod1+End exec /home/armin/bin/volume decrease
+bindsym Control+Mod1+o exec /home/armin/bin/randomwal
+bindsym Control+Mod1+n exec /home/armin/bin/np
+bindsym $mod+b bar mode toggle
+
+bindsym $mod+Control+j exec $HOME/bin/terminal
+bindsym $mod+Control+l exec lxappearance
+bindsym $mod+Control+k exec thunar
+bindsym $mod+Control+u exec pavucontrol
+bindsym $mod+Control+i exec vivaldi
+bindsym $mod+Control+o exec firefox
+bindsym $mod+Control+m exec chromium
+
+
+
+
+

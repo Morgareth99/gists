@@ -1,0 +1,17 @@
+root@peng:/home/armin# cat /etc/X11/xorg.conf 
+Section "ServerFlags"
+    Option "DontZap" "false"
+EndSection
+
+Section "InputClass"
+    Identifier      "Keyboard Defaults"
+    MatchIsKeyboard "yes"
+    Option          "XkbOptions" "terminate:ctrl_a
+EndSection
+
+
+
+root@peng:/home/armin# 
+
+
+

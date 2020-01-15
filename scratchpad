@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# simple scratchpad manager - <armin@mutt.email>
+
+terminal -e vim "$HOME/git/scratchpad/scratchpad.txt"
+cd "$HOME/git/scratchpad/"
+git add .
+git commit -m "Auto-committing new changes..."
+
+

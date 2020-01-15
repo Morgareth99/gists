@@ -1,0 +1,40 @@
+#!/bin/sh
+
+set -x
+
+# . $HOME/.dockerfunc
+
+#revision=0.12
+revision="$(docker images | grep '^firefox-dockerized' | head -n 1 | awk '{printf $2}')"
+echo "=== Using Revision: firefox-dockerized:${revision}"
+sleep 0.3
+
+docker rm /firefox-dockerized
+
+docker run \
+-v $HOME/.Xauthority:/root/.Xauthority \
+--memory 2gb \
+--net host \
+--cpuset-cpus 2 \
+-v /etc/localtime:/etc/localtime:ro \
+-v /tmp/.X11-unix:/tmp/.X11-unix \
+-v /home/armin/Downloads:/root/Downloads \
+-v /home/armin/Pictures:/root/Pictures \
+-v /home/armin/Torrents:/root/Torrents \
+-e GDK_SCALE \
+-e GDK_DPI_SCALE \
+--device /dev/snd \
+--device /dev/dri \
+-v /home/armin/.themes:/root/.themes \
+-v /home/armin/.themes:/root/.gtkrc-2.0 \
+-v /tmp/.X11-unix:/tmp/.X11-unix \
+-e DISPLAY=unix:0.0 \
+--name firefox-dockerized \
+firefox-dockerized:${revision}
+
+exit 0
+
+-v /home/armin/.firefox/mozilla:/root/.mozilla \
+-v /home/armin/.firefox/cache:/root/.cache/mozilla \
+
+

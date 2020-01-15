@@ -1,0 +1,6 @@
+sonic:~ exec 3<> /tmp/fo
+sonic:~ echo blah >>&3
+bash: syntax error near unexpected token `&'
+sonic:~ 
+
+

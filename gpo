@@ -1,0 +1,48 @@
+gpo> help
+
+  Usage: gpo [--verbose|-v] [COMMAND] [params...]
+
+  - Subscription management -
+
+    subscribe URL [TITLE]      Subscribe to a new feed at URL (as TITLE)
+    search QUERY               Search the gpodder.net directory for QUERY
+    toplist                    Show the gpodder.net top-subscribe podcasts
+
+    import FILENAME|URL        Subscribe to all podcasts in an OPML file
+    export FILENAME            Export all subscriptions to an OPML file
+
+    rename URL TITLE           Rename feed at URL to TITLE
+    unsubscribe URL            Unsubscribe from feed at URL
+    enable URL                 Enable feed updates for the feed at URL
+    disable URL                Disable feed updates for the feed at URL
+
+    info URL                   Show information about feed at URL
+    list                       List all subscribed podcasts
+    update [URL]               Check for new episodes (all or only at URL)
+
+  - Episode management -
+
+    download [URL]             Download new episodes (all or only from URL)
+    pending [URL]              List new episodes (all or only from URL)
+    episodes [URL]             List episodes (all or only from URL)
+
+  - Configuration -
+
+    set [key] [value]          List one (all) keys or set to a new value
+
+  - Other commands -
+
+    youtube URL                Resolve the YouTube URL to a download URL
+    rewrite OLDURL NEWURL      Change the feed URL of [OLDURL] to [NEWURL]
+    webui [public]             Start gPodder's Web UI server
+                               (public = listen on all network interfaces)
+    pipe                       Start gPodder in pipe-based IPC server mode
+
+gpo> subscribe http://inceptionaudio.podomatic.com/
+Successfully added http://inceptionaudio.podomatic.com/.
+gpo> download 
+Inception:Audio / I:A (Drum&Bass)
+Downloading IA001 Podcast - Displaced Paranormals - Inception:Audio      [ 34%]
+
+
+

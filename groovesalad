@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# play soma.fm groovesalad radio
+
+while true; do
+  curl http://somafm.com/groovesalad.pls | grep http | cut -d"=" -f 2 | while read line; do mpg123 -C -v "$line"; sleep 2; done
+done
+

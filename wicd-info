@@ -1,0 +1,9 @@
+#!/bin/bash
+# wicd-info - displays wireless information from wicd <armin@mutt.email>
+wicd=($(wicd-cli --wireless -d | cut -d" " -f 2- | tr '\n' ' '))
+echo "IPv4: ${wicd[0]}"
+echo "MAC: ${wicd[2]}"
+echo "AP: ${wicd[1]}"
+echo "Rate: ${wicd[10]} Mb/s"
+echo "Encryption Method: ${wicd[5]}"
+

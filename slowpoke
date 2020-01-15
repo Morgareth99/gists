@@ -1,0 +1,167 @@
+#!/bin/bash
+
+# Debug mode?
+# set -x
+
+# Base directory for backups (NOTE: no need for a trailing / here)
+backupbasedir="/data/backups"
+
+# Get name of script without preceeding directory path
+basename="${0##*/}"
+
+# Print a message
+msg () {
+  echo "[${basename}] $@"
+}
+
+# Check for MySQL configuration file
+if [[ ! -f "$mysqlconfig" ]]; then
+  msg "MySQL configuration file could not be found (or is not accessible)."
+  msg "Check the \$mysqlconfig configuration variable in $0"
+  msg "Exiting gracefully."
+  exit 2
+fi
+
+# MySQL related settings
+mysqlconfig="${MYSQLCONFIG:-/etc/my.cnf}"
+mysqluser="$(cat ${mysqlconfig} | grep -E '^user' | awk -F '=' '{print $2}')"
+mysqlgroup="${mysqluser}"
+datadir="$(cat ${mysqlconfig} | grep -E '^datadir' | awk -F '=' '{print $2}')"
+mysqlsocket="/var/lib/mysql/mysql.sock"
+
+# Script related settings
+logfile="${backupdir}/output.log"
+backupdir="${backupbasedir}/${date}"
+date="$(date +%Y-%m-%d_%H-%M-%S%z)"
+
+# Print an error message and exit
+bailout () {
+  msg "ERROR: $@"
+  exit 1
+}
+
+# Shows usage information screen (--help)
+usage () {
+  msg "Usage information: "
+  echo
+  echo "--show-logfile-information   - Show information about logfile when starting up"
+  echo "--mysql-config <FILE>        - Path to MySQL configuration file (can also be"
+  echo "                               specified via \$MYSQLCONFIG environment variable)"
+  echo "--backup                     - Perform a full backup"
+  echo "--restore                    - Restore a backup"
+  echo "--help                       - Show (this) usage information screen"
+  echo
+}
+
+# Shows information about logged output file location
+show_logfile_information () {
+  msg "Starting innobackupex (Backup directory: $backupdir)"
+  msg "Execution initiated at $(date) - Writing output to $logfile ..."
+}
+
+# Performs a backup
+backup () {
+  mkdir -p "${backupdir}"
+  msg "Re-directing output to: $logfile"
+  # exec >"${logfile}" 2>&1
+  # perform innobackupex backup
+  if ! innobackupex --defaults-file=/etc/my.cnf --user="root" --socket "/var/lib/mysql/mysql.sock" --no-timestamp "$backupdir"; then
+    bailout "Error while performing innobackupex backup"
+  fi
+  # perform further (multiple) runs of innobackupex to apply logs
+  # NOTE: this is "needed" as per the official percona docs. don't blame me.
+  if ! innobackupex --defaults-file=/etc/my.cnf --user="root" --socket "/var/lib/mysql/mysql.sock" --apply-log "$backupdir"; then
+    bailout "Error during innobackupex execution while trying to apply logs (run ${i}). Exiting gracefully."
+  fi
+  # perform two separate --prepare calls (xtrabackup) as per the
+  # "Perform FULL Backup" steps described in the official docs. again, don't blame me.
+  for i in 1 2; do
+    msg "Performing FULL backup (via xtrabackup --prepare), run $i"
+    if ! xtrabackup --defalts-file=/etc/my.cnf --user="root" --socket="/var/lib/mysql/mysql.sock" --prepare --target-dir="$backupdir"; then
+      bailout "Error during xtrabackup preparation (Run ${i}). Exiting gracefully."
+    fi
+  done
+  msg "Execution finished successfully. Goodbye."
+}
+
+# Restores a backup
+restore () {
+  msg "Restoring backup: $1"
+  if [ -z "${srcfile}" ]; then
+    result="$(ls "${backupbasedir}" 2>&1 | sort)"
+    if [ ! -z "$( echo "${result}" | grep -i 'No such file or directory' )" ] || [ -z "$(echo "${result}")" ]; then
+      echo "No backups found in: '${backupbasedir}'"
+      echo "Press enter to continue anyway or CTRL + C to interrupt." ; read
+    fi
+
+    id=1
+    echo -e "\nSelect one of the following backups by its leading numerical code\n"
+    while read line; do
+        files="${files}"$'\n'"${id};;;${line}"
+        echo -e "\t[ ${id} ]  ${line}"
+        id=$((${id}+1))
+    done <<< "$(find ${backupbasedir} -maxdepth 1 -type d | grep -E '[0-9]{4}-[0-9]{2}-[0-9]{2}_.*' | while read line; do echo "${line##*/}"; done | sort)"
+    files="$(echo "${files}" | sed -E '/^$/d')"
+
+    # Get input by User
+    while [ -z "${srcfile}" ]; do
+      printf "\n\tChoice: "
+      read input
+      input="${input}"
+      echo
+      if [ ! -z "$(echo "${files}" | grep -E "^${input};;;")" ]; then
+        srcfile="${backupbasedir}/$(echo "${files}" | grep -E "^${input};;;" | sed -E "s|^${input};;;(.*)|\1|")"
+      fi
+    done
+  fi
+
+  sleep 1
+  if [[ ! -z "${srcfile}" ]]; then
+    if pidof mysqld; then
+      bailout "MySQL (mysqld) is running: $(pidof mysqld), aborting operation gracefully."
+    else
+      [[ -d ${datadir} ]] && mv ${datadir} ${datadir}-"$(date)"
+      msg "Starting innobackupex run at $(date) ... "
+      echo "innobackupex --copy-back ${srcfile}"
+      innobackupex --copy-back ${srcfile}
+      msg "Fixing permissions for $datadir ..."
+      chown -R ${mysqluser}:${mysqlgroup} ${datadir}
+      msg "DONE."
+    fi
+  fi
+}
+
+# Show usage information and exit gracefully if we didn't get any arguments
+if [[ "$@" == "" ]]; then
+  usage
+  exit 255
+fi
+
+# Parses command-line
+while [[ "$#" -gt 0 ]]; do
+  case ${1} in
+    --show-logfile-information)
+      shift
+      show_logfile_information
+    ;;
+    --backup)
+      shift
+      backup
+    ;;
+    --restore)
+      shift
+      restore "$1"
+    ;;
+    ''|--help|*)
+      shift
+      usage
+      exit 255
+    ;;
+  esac
+done
+
+
+
+
+
+

@@ -1,0 +1,37 @@
+#!/bin/bash
+# 
+# svn-show-commit
+#
+# Written by Armin Jenewein (@netzverweigerer on GitHub)
+# 
+# Pretty-prints given commit for a subversion repository, along with its
+# corresponding patch-set.
+# 
+# It is recommended to use "diff-cmd = colordiff" in ~/.subversion/config
+# (install the "colordiff" package of your distribution if missing).
+# 
+
+usage () {
+	echo "USAGE: $0 <Revision-Number>"
+	exit 1
+}
+
+if [[ "$1" == "" ]]; then
+  usage
+else
+  rev="$1"
+fi
+
+tput setaf 4
+echo "SVN Revision: $rev"
+echo
+tput setaf 5
+a="$(svn log -v -r $rev | tr '\n' '|')"
+echo -n "Committer:"; echo "$a" | cut -d"|" -f 3
+echo -n "Date:"; echo "$a" | cut -d"|" -f 4
+echo -n "Comment: "; echo "$a" | cut -d"|" -f 9
+tput sgr0
+echo
+tput setaf 8
+svn diff -c "$rev"
+

@@ -1,0 +1,8 @@
+#!/bin/bash
+# dmenu wrapper script - <armin@mutt.email>
+(
+	IFS=:
+	stest -flx $PATH | sort -u | dmenu.xft -nb '#161616' -nf '#bbbbbb' -l 25 -fn "Monospace-8:normal" $@
+) | /bin/sh
+
+ 

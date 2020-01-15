@@ -1,0 +1,72 @@
+#!/usr/bin/env peervpn
+# vim: ts=2 sw=2 sts=2 et
+
+# Self-executable PeerVPN client node config template
+# Author: armin@mutt.email - http://unix.porn/
+
+# Assumes that the "peervpn" program is in your $PATH
+
+# define network ID
+networkname vpnname
+
+# pre-shared key
+psk supersecretpresharedkey
+
+# peer(s) to initally connect to (mandatory)
+initpeers 1.2.3.4 6969
+
+# UDP Port to listen on (mandatory on server)
+# port 6969
+
+# bind to local IP address (mandatory on server)
+# local 123.123.321.251
+
+# TAP device interface name (may not work on OS X)
+# interface vpn.blue
+
+# chroot
+chroot /var/empty
+
+# IPv4 configuration (via ip/ifconfig)
+ifconfig4 172.17.1.1/16
+
+# IPv6 configuration (via ip/ifconfig)
+# ifconfig6 2000:abc8:1:2::3/64
+
+# use ioSetSockmark() to mark packets (Linux only)
+# sockmark 0
+
+# upcmd - executed after bringing up tap interface 
+# upcmd echo virtual interface is up
+
+# explicitly disable IPv4 support
+# enableipv4 no
+
+# explicitly disable IPv4 support
+# enableipv6 yes
+
+# explicitly disable tunneling (you likely don't want to do this)
+# enabletunneling no
+
+# explicitly disable NDP caching
+# enablendpcache no
+
+# explicitly disable IPv6->IPv4 NATting
+# enablenat64clat no
+
+# let this node act as a relay server
+# (might cause a lot of traffic)
+# enablerelay no
+
+# enable privilege drop
+# enableprivdrop yes
+
+# (unprivileged) user to run as
+# user nobody
+
+# (unprivileged) group to run as
+# group nogroup
+
+
+ 
+ 

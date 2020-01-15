@@ -1,0 +1,15 @@
+Why pkgsrc is just awesome...
+
+armin@gate ~  uname -a
+NetBSD gate.vpn.blue 7.0 NetBSD 7.0 (GENERIC.201509250726Z) amd64
+armin@gate ~  cd /usr/pkgsrc 
+armin@gate /usr/pkgsrc  ls
+CVS/        benchmarks/  cad/    converters/  devel/      editors/      finance/  geography/  inputmethod/  mail/   meta-pkgs/  multimedia/  packages/  print/     shells/     textproc/  www/      README
+archivers/  biology/     chat/   cross/       distfiles/  emulators/    fonts/    graphics/   lang/         math/   misc/       net/         parallel/  regress/   sysutils/   time/      x11/      pkglocate*
+audio/      bootstrap/   comms/  databases/   doc/        filesystems/  games/    ham/        licenses/     mbone/  mk/         news/        pkgtools/  security/  templates/  wm/        Makefile
+armin@gate /usr/pkgsrc  cd mail/mutt
+armin@gate /usr/pkgsrc/mail/mutt  ls
+CVS/  patches/  DEINSTALL  DESCR  INSTALL  Makefile  Makefile.common  PLIST  distinfo  options.mk
+armin@gate /usr/pkgsrc/mail/mutt  
+
+

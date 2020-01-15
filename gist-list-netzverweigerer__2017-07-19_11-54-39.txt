@@ -1,0 +1,296 @@
+# created with:
+# d="$(date '+%Y-%m-%d_%H-%M-%S')"; gist-paste -l > gist-list-netzverweigerer__${d}.txt
+
+https://gist.github.com/f1bf17a727e35e3b938b06263300b9fa Firefox: show bookmarks bar / menu bar in fullscreen mode (Userstyle CSS) 
+https://gist.github.com/379af791c130db96378a3b210e86ecb5 kwallz - Adds all files in the current directory to the KDE wallpaper selection dialog (dirty hack KDE wallpaper workaround script) 
+https://gist.github.com/9581ed16098aaa3002b33241de359fcb .bashrc 
+https://gist.github.com/a660c50e776a9798192970852e1648c7 .local/share/konsole/Breeze Dark.colorscheme 
+https://gist.github.com/e99f7ec4709f6a8f14d14e4b157f8226 .local/share/konsole/Breeze Bright.colorscheme 
+https://gist.github.com/adc00104ebb6d957d883e9b4b25b3d26 tmpfs-fstab-entries.txt 
+https://gist.github.com/420072f80fa139f81b04c4fbecd61881 80apt-disable-warning.conf 
+https://gist.github.com/9f0ac8607f3e57d636ea6f14a4aa4df6 create-self-signed-certificate.sh 
+https://gist.github.com/b2a2ce8c51dd6b293cc29bdbf536fd91 stream video to gpn badge 
+https://gist.github.com/f5ec964265226bc01b73ba17b056b16e compositing 
+https://gist.github.com/7e900ed833347e1f9ce599016dafeb6b alpine-pkgsearch.sh - search for Alpine Linux packages by specifying a filename 
+https://gist.github.com/c17fc663dcdf34c58d1896a38de93e1e systemd-components guessing drinking game 
+https://gist.github.com/bc40347be92a16d8a0de757497801141 tetris.theme - Tetris theme for irssi 
+https://gist.github.com/9874dba857d14ebea5f1c219e224b619 .tmux.conf 
+https://gist.github.com/5758259734cbba94d7d8f401adfb3738 config 
+https://gist.github.com/5aef6a5421bd972a2d045625a90f8e07 am03127.py 
+https://gist.github.com/f0f30f6f637f3934392cdca1636a4dda i3-gaps-dependencies-debian.sh 
+https://gist.github.com/2e9afb8d2f8694533043985f8b129d03 git-grog.sh 
+https://gist.github.com/6480b56ec65c6915415153cd5e5180ee ALSA config file to re-prioritize sound output devices 
+https://gist.github.com/75f72d09fbaf0de5d9c624fb3455a472 NOTE: see the "kwallz" gist for a more recent version of this script. 
+https://gist.github.com/9a4b50b5ebc47321b57b73e98c47b486 10-mtrack.conf 
+https://gist.github.com/c481de49e403a8dd04be52438921e992 svn-show-commit 
+https://gist.github.com/2b5853eb6f1aee65e98e957d7a0204b2 svn-patchlog 
+https://gist.github.com/2e217e6952762963f87d35c8a24fc435 brightness 
+https://gist.github.com/55966ca0e3199eb7273470915e1c93f8 notification 
+https://gist.github.com/c6224270cdf1066dad0bce09c4549887 Early version of Tobias Volk's Konnektor, a minimal network manager for FreeBSD. See https://github.com/tobiasvolk/konnektor 
+https://gist.github.com/ec74776dbabd8109e9fa6bc85f1aa511 ferm.conf - For Easy Rule Making (ferm config file) - iptables made easy 
+https://gist.github.com/004e2a8e3513015c5df6dedcb894664a FreeBSD 11 notebook installation cheat-sheet 
+https://gist.github.com/40742ed10bfa70857d6f1d0f8611e152 windowtitle 
+https://gist.github.com/e1bac37bd0e60ba40404804ffd4f14e6 accels.scm 
+https://gist.github.com/fd38bded4e0d40400a40c52292ec2f19 known-hosts-exclude 
+https://gist.github.com/793de234ebfefd4c0c94deda2059a892 .irbrc 
+https://gist.github.com/e0911bd725021bb0572dc338bb3b2ad7 04_tux.c 
+https://gist.github.com/28b95081552f43bad1b157197f8d574b 03_info.c 
+https://gist.github.com/08f624b041bd06b14927e3c28f5d9af5 02_icon.c 
+https://gist.github.com/741cd173e1581ea05394a49186df5f43 01_UTFT_Bitmap.ino 
+https://gist.github.com/222a43f2edf34c5cc1f7358064bd826e finder-show-hidden-files 
+https://gist.github.com/962660189a4fbe62287b336a38d87aa0 finder-hide-desktop-icons 
+https://gist.github.com/82a42b677a4ad0d97bbda13198bb1102 retina 
+https://gist.github.com/02549c8d92dda98ddeaaf925fe808f11 firefox-dockerized-shell 
+https://gist.github.com/5e3805145185895e73978b251cf4a4b7 firefox-dockerized-commit 
+https://gist.github.com/6b272eac47e46bc42c3c009e1c2085d5 firefox-dockerized firefox-dockerized-commit firefox-dockerized-shell 
+https://gist.github.com/849bbf65ed5e95be911a0a540c3e09ed My exported preferences for the Firefox "Tab Mix Plus" extension 
+https://gist.github.com/7f57ca95e307816489b30888c68f3c2a devuan-packages.txt 
+https://gist.github.com/7fd5784631d8b3a3ffb7988402cf260f ipv4-subnets.txt 
+https://gist.github.com/b40f6b215364a3ddbe95be3cda8aefd7 Just a gist of the awesome gruvbox theme for VIM 
+https://gist.github.com/3a2202ec68faab5c374e1dad6308e715 dmenu_run_output.txt 
+https://gist.github.com/fec52ed624fe017f1c1b527fa69868f0 rebuild-world.sh 
+https://gist.github.com/1ce1c35c22495aa64906bca08ba5ede9 .compton.conf 
+https://gist.github.com/de4099aa353e75515015f80c3817262e example.py 
+https://gist.github.com/b94a8d606435b312e9cccc2dfa551d7c .Xresources 
+https://gist.github.com/e3916b3ad8733eb4e6c1b469888d54d3 dhcpcd.conf 
+https://gist.github.com/7465cf188e41be49038b36d3c246bdd0 .screenrc 
+https://gist.github.com/65766847dda8ec0d845d093961d1b65c xinitrc_armin@destruction.log 
+https://gist.github.com/dd1a699536213307eacb6978d869a102 .tmux.conf 
+https://gist.github.com/09c71956dec437d6100bf02e07927ef2 .Xresources 
+https://gist.github.com/56b0a61abbbaa8d813e9714683a89ff9 qrencode.txt 
+https://gist.github.com/7888b6ef397fc2824b1dbc71d2a431fc slowpoke 
+https://gist.github.com/f382d2ea442be7e14552bf1fb8e368ae SVN configuration file to store authentication credentials 
+https://gist.github.com/18376059e9a6ed22f436228b232d51cb panel 
+https://gist.github.com/6081510d9a7ae95abb5a1ef38125819e ferm.conf.txt 
+https://gist.github.com/7c78cc5ea391c9a09da64e79ad3d1897 sha256.sh 
+https://gist.github.com/d1f88a889549854a71a94a7d38b5a616 isotest 
+https://gist.github.com/eca28897e9f4c092b5a6d530d279b5d4 void-install.sh - Simple Void Linux unattended installation script 
+https://gist.github.com/a107f8ec830e3f23134b6eecb089104b reuters-rss.txt 
+https://gist.github.com/9a6b74f57271b59c5df726daa9d1c8b5 bar 
+https://gist.github.com/375a09e48fb5d986f1eeb12d4648a0a3 compositing 
+https://gist.github.com/d9ec805c4aa42dd54ee8ebccd6bde459 config 
+https://gist.github.com/e6584dabb54bb8c29b1872d59c324f12 deepmix.sh - plays a random mix set from deepmix.eu 
+https://gist.github.com/3ed567b03a8358298868a2bb7005f853 bar 
+https://gist.github.com/679bd25723e86bdcc2e25d79e5cf1f06 .Xresources 
+https://gist.github.com/4085cf149a487bb90e6c435adb567dfc terminal 
+https://gist.github.com/9e73607d0ca6346213d219609f223e96 compositing 
+https://gist.github.com/25aa7ce942f9681c410620f65784be2e .Xresources 
+https://gist.github.com/e72d6d147361fd00653593f16e478c5e font-size 
+https://gist.github.com/974251c87eb5262dff7e76210ba3dfac terminal 
+https://gist.github.com/acf19865046dd68903208ab749b74060 pointog 
+https://gist.github.com/6de47035b610cde32e95b27356cd5f56 compositing 
+https://gist.github.com/509bc0a54d66afa607135614040d4f84 output.txt 
+https://gist.github.com/9bbb8c0c9efc1692117ba4764056edca bhyve-virsh.txt 
+https://gist.github.com/486be632d616ed1dfc2a0ba2a83ded76 openbsd-urxvt-terminal - starts an rxvt-unicode terminal emulator with sane defaults and terminus as font (used on OpenBSD 5.9) 
+https://gist.github.com/cef6bd53586c0b335af605f7299d7887 .xinitrc 
+https://gist.github.com/38d0c2a2496f91849dc6c32a28007415 compositing 
+https://gist.github.com/6689dc03fd3325e3bfd3a3def72a43ba compositing - simple compton wrapper script 
+https://gist.github.com/992619ead1100a506b508a577f6e4d42 g 
+https://gist.github.com/7a47c347d09fd4fe0856ecd00f78e1ad .xinitrc 
+https://gist.github.com/8b2b6d9020c4114e490e749085fa1d1f wifiscan 
+https://gist.github.com/973b2eb946de0669f983749c7d676863 terminal 
+https://gist.github.com/1611c9a3232ed8b87bd049520b00d294 config 
+https://gist.github.com/1e6bfcd392af65b6e06e00c7dc557176 .Xresources 
+https://gist.github.com/bfcac41a2d57d62ce90afee5d8d3d9e6 gis 
+https://gist.github.com/09bb0682d107fb557cd555a508489907 sysctl.conf 
+https://gist.github.com/4ae6a21146680812b14f2988d10e2ff7 loader.conf 
+https://gist.github.com/cf26cfa5cddb810252d6c3ddb657ec1f rc.conf 
+https://gist.github.com/6e1477659f463322424fc3e3a366c4fb FreeBSD 10.3: Power saving relevant settings 
+https://gist.github.com/76d9196f11ec819a44af647cdbdf4ea8 xresources-xscreensaver-dark.xresources 
+https://gist.github.com/27055777b4f251bcf81b9f3663682cbe freebsd-test-iso.sh 
+https://gist.github.com/e293351ce910f7a45382378578c2f286 config 
+https://gist.github.com/21ec2db81d4fd0fb02c5e61bbb15b691 flock.example.sh 
+https://gist.github.com/9c0a4aeb28ce2a88c4244fbfd0b975b6 .xinitrc 
+https://gist.github.com/e5ce81c4b02d12565bb70d3af3748e09 weechat-buffers.color.txt 
+https://gist.github.com/ef2818e46838221a76b6d1c6451c6860 parameter-expansion-cheatsheet.sh 
+https://gist.github.com/7cbc82161e627e8302c8a71cf0f52cd7 compositing 
+https://gist.github.com/d3803933dd8e920414b243bc42bf615d Executable version of the bash parameter expansions cheat-sheet (a.k.a. "polish ostrich racing champion") 
+https://gist.github.com/fbc16a01f2fd70851d5b returns the window title by looking up __NET_ACTIVE_WINDOW for the currently focused window in an Xorg session 
+https://gist.github.com/1a77c7e9572805719468 windowtitle 
+https://gist.github.com/9e28a0c21af38eb601b9 help.sh 
+https://gist.github.com/bd166209d0fbd4b85134 config 
+https://gist.github.com/4b0e46e55e381b3f3c88 wget.strace.txt 
+https://gist.github.com/2b0e594cd0763fe026b2 randomurl 
+https://gist.github.com/ae712d09a40e50228756 sources.list 
+https://gist.github.com/709372644a9a828bd5ad muttrc for 256 color compatible terminal emulators 
+https://gist.github.com/86403be426adaa8fc6e9 0001-fluxbox-fix-workspace-padding.patch 
+https://gist.github.com/7f9892d47b5db71c6205 backlight 
+https://gist.github.com/6853f09cda72fa6788f7 wp 
+https://gist.github.com/42864b557f62f3eb86e8 gtkrc-2.0 file to hide the annoying tooltips of Pidgin 
+https://gist.github.com/745cb70bfc547e678e25 wp 
+https://gist.github.com/f46925d376fe8a8a7e2d compositing - enable/disable compositing (Xorg + compton) 
+https://gist.github.com/d256132085abea6f54de config.fish 
+https://gist.github.com/72a1dd5f107e1174717d colortest 
+https://gist.github.com/b705d67ed39f1e570c89 weechat-buffers.pl-settings.txt 
+https://gist.github.com/a41731240dfd35096469 Xresources-zunjae 
+https://gist.github.com/d28f22104331c4bfba57 config 
+https://gist.github.com/f846769ebaa422d8b672 font-size 
+https://gist.github.com/ad0a1d76e58486638bad backlight - simple xbacklight wrapper script that uses a quadratic function for brightness changes 
+https://gist.github.com/1d3f4c0b120f5456d967 .vimrc 
+https://gist.github.com/8e5c3c60a5b639210a17 bubblegum-256-dark.vim 
+https://gist.github.com/ec86d2402c5a58187805 asound.conf 
+https://gist.github.com/1ece15e122f018510387 config 
+https://gist.github.com/bc697ae6311357e4f6d2 compositing 
+https://gist.github.com/73a8a40bcda1e21b8523 compositing 
+https://gist.github.com/6d048353c4657b57c6fc backslashfubar 
+https://gist.github.com/e0b14283861af72d6ba3 peerctl 
+https://gist.github.com/f8ff4f26894c53bb8077 shuffle-array.sh 
+https://gist.github.com/e1b57e85dcb12a99034b .xinitrc 
+https://gist.github.com/61164e61ba1541d2da5c compositing 
+https://gist.github.com/3cf89d04637c7ab74c77 pkgsrc_rocks.txt 
+https://gist.github.com/ef0c84956722b34ce213 lapstate 
+https://gist.github.com/5e0b7fcbb83eb41b2a7c motd-reality 
+https://gist.github.com/cc9c1c09ac49588ec4b2 .lftprc 
+https://gist.github.com/f01d7a1b511c41d02bfe .Xresources 
+https://gist.github.com/0bc6b485587d5be45dd1 ~/.fluxbox/apps 
+https://gist.github.com/b170bea2e4cf10577f71 ~/.fluxbox/init 
+https://gist.github.com/ff1391002fd1695b5c63 ~/.fluxbox/keys 
+https://gist.github.com/b80100bc359b22c6cd29 burial.vim 
+https://gist.github.com/2c7cabf7690824a4ffaa gpo 
+https://gist.github.com/25cef2242087b4bfb234 weechat.color.chat_nick_colors 
+https://gist.github.com/e0f5427e865da2731590 polish.ostrich.racing.champion (Bash Parameter Expansion Cheat Sheet) 
+https://gist.github.com/6d8257a6567f2415256e colortest.py 
+https://gist.github.com/2a59c27ce2c1449fbe8d mail-restart 
+https://gist.github.com/85b0b9eaaa7c34e5d172 mail-logview 
+https://gist.github.com/5ee6f03c6cf5424edfe6 portbullet - Simple FreeBSD ports installation wrapper script  
+https://gist.github.com/18302789243e34ac6583 sshvnc 
+https://gist.github.com/e99895befdfc284bc730  
+https://gist.github.com/6386f82380ae7a2b531b virt-manager-ssh 
+https://gist.github.com/49032406b541a80b8332 ncmpc configuration file (~/.ncmpc/config) 
+https://gist.github.com/3792411d2ccd19c08da2 Simple configuration file builder for PeerVPN 
+https://gist.github.com/252e9e729995aa6fbbb7 jenkins 
+https://gist.github.com/e53f81e9e5a01bf26a81 peervpn-template-config 
+https://gist.github.com/540fe2323db48c728c12  
+https://gist.github.com/cacf749ee5a68a19b826 timemachine-exclude 
+https://gist.github.com/532a10a7274a05e61e72 cleanup 
+https://gist.github.com/420284ed00beca6f796a .screenrc 
+https://gist.github.com/4cb859811aa7c75b37a2 wtfismyip.py 
+https://gist.github.com/34d4189264459c8c3dfd .tmux.conf 
+https://gist.github.com/dcc48d8a17fc2192c16c title.py 
+https://gist.github.com/1eb7272de7733c69b1af isotwist 
+https://gist.github.com/1f6e5cad0903e21606d1 buffers.pl.settings.txt 
+https://gist.github.com/08f423d4111bb2c5c53d zsh-color-names.zsh 
+https://gist.github.com/f054af60512099b1684c tput-setaf-example.sh 
+https://gist.github.com/6e64d306ab659658efc3 fix 
+https://gist.github.com/6b9ace1444eff566dcae retina 
+https://gist.github.com/a904624e7b9fc8121d1f peervpn.config.example 
+https://gist.github.com/7bb715190847d9bfbafa retina 
+https://gist.github.com/662d04176e2899e39f99 python-key-value-store.py 
+https://gist.github.com/8c988ecf60b3eb3dafdf dnbsets.de-scraper.py 
+https://gist.github.com/e45f8c63d2185c3eb34e hidden 
+https://gist.github.com/c65652c7d32a86d3087f bash/zsh git prompt support, Copyright (C) 2006,2007 Shawn O. Pearce <spearce@spearce.org> 
+https://gist.github.com/be680922078a49483a29 .xinitrc 
+https://gist.github.com/cbf7dec80d66d2df43ca .Xresources 
+https://gist.github.com/bef438e49e29079453a7 bspstatus 
+https://gist.github.com/d75b989423972261f142 256-color-test.sh 
+https://gist.github.com/74c3db694aaac015462d 256-color-test.sh 
+https://gist.github.com/2791869ce4d3d4913c53 .Xresources 
+https://gist.github.com/97d76a5cfa929ad28d1a brightness 
+https://gist.github.com/4f9713a2847f17d77c83 config 
+https://gist.github.com/28c0af3f7caa1e14df7e .xinitrc 
+https://gist.github.com/549ecea409a1313374fe docker-fancylist 
+https://gist.github.com/b78e1519bc9d91d7ddf9 gap 
+https://gist.github.com/0b3670e9b5e30cb71710 pacman-simplified-aliases 
+https://gist.github.com/3a25208d361c68b65422 Play soma.fm groove salad audio stream (via mpg123) 
+https://gist.github.com/5866f3001fd6f5950517 spice-gtk-missing-fix-debian 
+https://gist.github.com/5e0097e2009d79bf995a arch-linux-installation-cheat-sheet.txt - added by [gist] 
+https://gist.github.com/3ad3e145831082e08c61 Xresources-alternate-colors 
+https://gist.github.com/dd935d2e70cece2bed3c bspstatus-solarized 
+https://gist.github.com/8ed26785b05caa72f83f bluetooth-connect - added by [gist] 
+https://gist.github.com/b86798554a1539d609e7 debian-8.1.0-live-nonfree-amd64-iso-hybrid - added by [gist] 
+https://gist.github.com/dd92567b40cd4d717019 git/mescaline/mescaline - added by [gist] 
+https://gist.github.com/8cd4c1db5b70acda436a bin/tptog - added by [gist] 
+https://gist.github.com/993f45fba5610351328a bin/workspace - added by [gist] 
+https://gist.github.com/f9e2c0971c28fcbcd1d9 bin/outputs - added by [gist] 
+https://gist.github.com/b6816139023a3c951b4f bin/tfr - added by [gist] 
+https://gist.github.com/e6d0557ef19c1ce4e53c mpd-init-script-debian-fixed - added by [gist] 
+https://gist.github.com/1812418ba806330e01b2 bin/bspstatus - added by [gist] 
+https://gist.github.com/d431203099cee7bc196b .xinitrc - added by [gist] 
+https://gist.github.com/6686912e315cfd5a00d3 bluetooth-watchdog - added by [gist] 
+https://gist.github.com/97cfef3e0efe88867cd3 bspwmrc - added by [gist] 
+https://gist.github.com/cfed82efc777983d6192 nuc.txt - added by [gist] 
+https://gist.github.com/2367de36ba7d26232a93 i3lock-x220.png.base64 - added by [gist] 
+https://gist.github.com/0fc616a6f9a2e78b5b2d google-hosts 
+https://gist.github.com/66ee86c5bf6bb7895ace git/bspwm/config - added by [gist] 
+https://gist.github.com/44f41227dfdc1b8f5b8f bin/gist - added by [gist] 
+https://gist.github.com/005478b9300817932c9d bin/fob - added by [gist] 
+https://gist.github.com/4e1903731b602c885c98 raspbian-group-fix - added by [gist] 
+https://gist.github.com/abe87c17c8a41eeba3e3 bin/res - added by [gist] 
+https://gist.github.com/6ebba5a0c0190e2277ba bin/workspace - added by [gist] 
+https://gist.github.com/12b49af6f8f2d16cb6fd bin/dunstwrapper - added by [gist] 
+https://gist.github.com/7e26836324cd26162642 fob - added by [gist] 
+https://gist.github.com/a2bbc100560a8fd874ff dep - added by [gist] 
+https://gist.github.com/28a25643e5b60dc35df3 gerrit - added by [gist] 
+https://gist.github.com/f8b63a839453bd082813 get_newest_directories.py - added by [gist] 
+https://gist.github.com/4eaabe9a9d97e2dac67a openssl-md5-key - added by [gist] 
+https://gist.github.com/b9a68ca1a536044a2ee0 openssl-md5-csr - added by [gist] 
+https://gist.github.com/b617a67deeabdfed387b openssl-md5-crt - added by [gist] 
+https://gist.github.com/ee80afc3155dc2b9c288 skypebanner - added by [gist] 
+https://gist.github.com/30a17e9e30a496b26585 skype - added by [gist] 
+https://gist.github.com/a9b9cde53101a124eb30 space-invaders.sh - added by [gist] 
+https://gist.github.com/46f4e3bc2b2f0e4018b3 volume - added by [gist] 
+https://gist.github.com/2cc776b0475db5fa1f8e wicd-info - added by [gist] 
+https://gist.github.com/ea57baedff8980f2a9c4 workspace - added by [gist] 
+https://gist.github.com/2b12dbf87ce0b002bb18 wt - added by [gist] 
+https://gist.github.com/7483a71c42fec680a2b1 scratchpad - added by [gist] 
+https://gist.github.com/a0c297088641360b0a10 panel - added by [gist] 
+https://gist.github.com/faad064baa6d0c471bbc loop - added by [gist] 
+https://gist.github.com/834d5a5992356f8c4c50 dmenu - added by [gist] 
+https://gist.github.com/e493286a325fdd691c3e http-return-code.sh - added by [gist] 
+https://gist.github.com/43575851f00ea97e93be remove-empty-lines - added by [gist] 
+https://gist.github.com/5f8b39869273369435ab remove_duplicate_lines.py - added by [gist] 
+https://gist.github.com/646f341d21891095b7ad dunstwrapper - added by [gist] 
+https://gist.github.com/5647992d2adabbd26d6e bin/windowtitleosd - added by [gist] 
+https://gist.github.com/217d1d045a0ffd2740c7 terminal - added by [gist] 
+https://gist.github.com/ca3d272968682d0ce298 comptonwrapper - added by [gist] 
+https://gist.github.com/11d69ce93b7d3cbb42e6 backup/bin-foo/i3status_wrapper - added by [gist] 
+https://gist.github.com/350dec01cf05b83882d3 monitor_setup.sh - added by [gist] 
+https://gist.github.com/d7e1daa88fd50a752353 muttrc - added by [gist] 
+https://gist.github.com/0af7673b8b4dcfc6b0df gist - added by [gist] 
+https://gist.github.com/210d3401bfe5239ae5eb 256-color-test.py - added by [gist] 
+https://gist.github.com/6a286bc292028cd45503 .bashrc - added by [gist] 
+https://gist.github.com/3e5bf117921e3c7a2c3f Xresources (secret)
+https://gist.github.com/405b5ddaac8647a89628 peervpn-network-interfaces 
+https://gist.github.com/c0fca8f744babc83d196 wicd-info 
+https://gist.github.com/c869f5dfbc7d1e525c79 workspace 
+https://gist.github.com/b8c000371f206bf8a19a zshrc 
+https://gist.github.com/1a5e1deebbcbb1d99598 ~/.bashrc 
+https://gist.github.com/8016af27ac860b572f72 postfix-main.cf-nexus 
+https://gist.github.com/273788ad3b09162dee06 colortest 
+https://gist.github.com/b9a8e3a58a7ba4873e78 loop 
+https://gist.github.com/e853cfbca0255abe8d9c wp 
+https://gist.github.com/16ef0f413cf193e38afe package.list.nexus 
+https://gist.github.com/2e219d25d62effd3171d rmoffending - remove offending host key from OpenSSH known_hosts files 
+https://gist.github.com/badced5d515242f999c5 bluez-list-devices 
+https://gist.github.com/8d27f03b1eb573f2a97e pastefix 
+https://gist.github.com/e338179948c1c47a3ee3 lock - locks your screen using i3lock, showing a scrambled/pixelated screenshot 
+https://gist.github.com/8ae87b2a21f0a268ad90 ~/.xinitrc 
+https://gist.github.com/c9a8a103a0075e3729d1 wp - simple wallpaper setter 
+https://gist.github.com/4be435eededdddbac1a9 Xresources 
+https://gist.github.com/113b166083cbf8bc45e8 ssh-allow-password-auth-from-vpn.txt 
+https://gist.github.com/a05b4d5b14919dda7ca5 sha256sum.py 
+https://gist.github.com/6f6ee8d9bc7aac3f3209 freedns.py 
+https://gist.github.com/a7eb4d1340b4ffd856e6 lock.sh - locks your screen using i3lock, showing a scrambled/pixelated screenshot 
+https://gist.github.com/a2a852d91b2a9be7caf5 mopidy.liq readme.md 
+https://gist.github.com/394d3bcd230182b18ee9 imapcheck.sh 
+https://gist.github.com/b35a1cd9305af5097fa3 10-no-install-recommends.conf (Debian, APT) 
+https://gist.github.com/0b366d5daa2f32e1e0bb table2.py - educational python task - unicode line drawing characters version 
+https://gist.github.com/fd564197174938b0f148 table.py - educational python lesson, draws ascii art tables and fills them with numbers 
+https://gist.github.com/e5027acf441e7118fa2b apt-add-signing-key - adds a new GPG key to apt-key that is being used for signing packages to be installed 
+https://gist.github.com/135414fd922205b3118b imafraid - simple afraid.org update script for OpenWRT routers 
+https://gist.github.com/6e776aaffdcc2853f7d6 flac2mp3 
+https://gist.github.com/77e38d305d29dde3a1f3 ogg2mp3 
+https://gist.github.com/2ae555d848c94f841dc5 penisvolume.sh 
+https://gist.github.com/f0d659e8764083ac97f6 volume.sh 
+https://gist.github.com/016765b96212c7cfb67b ncmpc-killer.sh 
+https://gist.github.com/d46118b88a90d7fc5fe5 screenrc 
+https://gist.github.com/050acf15f5368dcd1bba i3status_windowtitle 
+https://gist.github.com/696b71c45e1adf1097ec wtosd - Window Title OSD (On Screen Display) 
+https://gist.github.com/9156a7e00113de975c0e Simple bash script to increase/decrease audio volume 
+https://gist.github.com/cfc22c751c1642f704d6 Plenumdatum 
+https://gist.github.com/11215159 Howto: create bootable USB stick on Mac OS X 
+https://gist.github.com/11117075 Usage: <command> | sprunge - paste output of "command" to sprunge pastebin 
+https://gist.github.com/10966008 prints mountpoint and actual device name for some file 
+https://gist.github.com/10965778 r - simple wrapper script for autossh 
+https://gist.github.com/10587538 Simple multi-threaded webserver in Python (twistd) 
+https://gist.github.com/5964830 Tiny retrostyle 4 revamped TagesschauDe 4 Desktops (without background) tagesschau.de Stylish extension custom CSS style that removes the stupid fixed background and fixes the weird font settings 

@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# Fix your file formatting after doing a copy paste with empty spaces at the line-ends
+
+cat "$@" | sed "s/\ *$//g"
+
+
+

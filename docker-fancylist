@@ -1,0 +1,4 @@
+#!/bin/bash
+
+docker images --all --no-trunc 2>&1 | grep -v IMAGE | while read line; do id="$(echo "$line" | xargs | cut -d" " -f 3)"; echo "$line"; docker inspect "$id"; echo "-----"; done > /tmp/output.tmp.json; vim /tmp/output.tmp.json
+

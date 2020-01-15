@@ -1,0 +1,73 @@
+
+ ____       _    _____      
+|  _ \ ___ | | _|___ / _ __ 
+| |_) / _ \| |/ / |_ \| '__|
+|  __/ (_) |   < ___) | |   
+|_|   \___/|_|\_\____/|_| VORTEX POK3R KEY FUNCTIONS
+
+GitHub: @netzverweigerer
+
+Link to manual PDF (might be outdated, check vortexgear.co.kr):
+
+http://www.vortexgear.co.kr/exec/front/Board/download/?no=66&realname=2016/08/10/c7075698b98259c6e84d322cd1a088b6.pdf&filename=POK3RUserManual(V1.5).pdf
+
+
+This file describes the additional functionality (reachable via additional
+layers) on a Vortex Pok3r (a.k.a. "Poker 3") 60% mechanical keyboard with
+ISO-DE layout. These do NOT apply to the ANSI versions of the Pok3r.
+
+
+First Row (Function keys, escape, backspace)
+============================================
+
+ESC - ` ~
+Backspace - DEL
+1 - F1
+2 - F2
+3 - F3
+4 - F4
+5 - F5
+6 - F6
+7 - F7
+8 - F8
+9 - F9
+0 - F10
+ß - F11
+´ - F12
+
+
+Cursor navigation (and arrow keys)
+==================================
+U - PgDn
+O - PgUp
+I - Up
+J - Left
+K - Down
+L - Right
+H - Home
+N - End
+
+Text modification (insert/delete)
+=================================
+Ö - INSert
+Ä - DELete
+
+Layer switching
+===============
+M - Default layer
+, - Layer 2
+. - Layer 3
+- - Layer 4
+
+Keyboard Repeat Rate (hardware controlled)
+==========================================
+T - 15ms
+G - 0.1s
+B - 0.5s
+
+General
+=======
+R - Reset
+Z - App
+
+

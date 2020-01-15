@@ -1,0 +1,6 @@
+#!/bin/bash
+
+(echo ''; echo "$@" | figlet -f banner | sed 's/[^ ]/(devil)/g' | sed 's/ /(mooning)/g') | xclip
+echo "$@ skype banner copied to clipboard"
+
+

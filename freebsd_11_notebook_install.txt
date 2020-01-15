@@ -1,0 +1,2 @@
+The FreeBSD 11 notebook installation cheat-sheet has been moved to an own repository:
+https://github.com/netzverweigerer/freebsd-notebook-install

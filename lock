@@ -1,0 +1,85 @@
+#!/bin/bash
+# vim: ts=2 sw=2 sts=2 et
+
+
+# lock.sh - locks your screen using a pixelated screenshot made with
+# scrot (uses imlib2).
+# Will not show anything when you type in your password.
+
+# How long to display "Locking Screen..." OSD message before locking
+wait=1
+
+# welcome msg
+echo "lock - locks your screen using a pixelated screenshot made with"
+echo "scrot (uses imlib2)."
+echo
+echo "Written by Armin (Netzverweigerer @ Github)"
+
+### Dependency / Conflicts checks, mark error(s), helper functions:
+e=0
+markerror () {
+  e=1
+}
+bailout () {
+  exit 1
+}
+checkosdcat () {
+  while pidof osd_cat 2>&1 >/dev/null; do
+    sleep 0.5
+  done 
+}
+
+# Check for dependency programs
+which convert >/dev/null || (echo "Please install imagemagick." && markerror)
+which i3lock >/dev/null || (echo "Please install i3lock." && markerror)
+which osd_cat >/dev/null || (echo "Please install xosd-bin" && markerror)
+
+# Check for conflicting xscreensaver process
+x="$(ps auxwww | grep -i xscreensaver | grep -vE '(grep|\[defunct\]|xscreensaver-demo)' | wc -l)"
+if [[ "$x" -gt 0 ]]; then echo "xscreensaver detected. Please stop xscreensaver." && markerror; fi
+
+# Bailout on errors
+if [[ "$e" == 1 ]]; then
+  echo "Errors occured. Exiting gracefully."
+  bailout
+fi
+
+
+### Screenshot / OSD
+
+# get temp filenames
+
+t="$(tempfile)"
+tm="${t}.png"
+mv "$t" "$tm"
+
+# make original screenshot
+scrot -q 50 "$tm"
+
+# show OSD
+echo "Locking screen..." | osd_cat -d "$wait" -A center -O 2 -u "#000" -T "Locking screen..." -c "#ccc" -o 20 -f "-*-terminus-bold-*-normal-*-*-960-*-*-*-*-*-*" &
+
+# do not take screenshot as long as osd_cat is still running...
+checkosdcat
+
+# make pixelated version of screenshot
+convert -quality 10 -scale 10% -scale 1000% "$tm" "${tm}.mod" && rm -f "$tm"
+
+### Locking
+# -e is supported since i3lock 2.6 (will not validate empty passwords against PAM)
+# i3lock -u -e -i "$tm"
+i3lock -u -i "${tm}.mod"
+
+# remove temp files
+rm -f "$tm" "${tm}.mod"
+
+exit 0
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,30 @@
+#!/bin/bash
+maxlength=60
+title1="$(xprop -id $(xprop -root _NET_ACTIVE_WINDOW | cut -d ' ' -f 5) WM_NAME | cut -d"=" -f 2- | cut -b 3-70 | rev | cut -b 2- | rev)"
+title="${title1//[![:alnum:]@:~\ -\[\]\(\)\_ ]}"
+title_n="$(echo "$title" | sed 's/ü/ue/g;s/ö/oe/g;s/ä/ae/g')"
+title="$title_n"
+title_length="$(echo "$title" | wc -c)"
+offset="$maxlength"
+let offset=offset-3
+if [[ "$title_length" -gt "$maxlength" ]]; then
+  title_stripped="$(echo $title | cut -b 1-${offset})..."
+  title="${title_stripped}"
+fi
+# window class name
+class="$(xprop -id $(xprop -root _NET_ACTIVE_WINDOW | cut -d ' ' -f 5) | grep -i ^wm_class | rev | cut -b 2- | cut -d"," -f 1 | rev | cut -b 3-)"
+case "$title" in
+  *WeeChat*)
+     echo -e "WeeChat\n-\n#888888"
+     exit 0
+  ;;
+  *)
+    if [[ "$class" == "URxvt" ]]; then
+      #echo -e "$title\n-\n#888888"
+      echo -e "$title\n"
+      exit 0
+    fi
+    echo -e "$title  ($class)\n-"
+    exit 0
+  ;;
+esac

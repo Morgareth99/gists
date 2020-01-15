@@ -1,0 +1,76 @@
+#!/bin/bash
+# [gist] <armin@arminius.org>
+# creates a github gist
+# show usage info
+
+usage () {
+
+  echo "Usage: $0 "
+	exit 1
+
+}
+
+gistit () {
+
+  file="$1"
+
+	if [[ "$file" == .*\.sh$ || "$(head -n 1 "$file")" =~ "/bin/bash" ]]; then
+		echo "[shell] file detected"
+  	gist-paste -s -c -d "$file - added by [gist]" -f "$file" -t shell "$file"
+		exit 0
+	fi
+
+	if [[ "$file" =~ .*\.py$ || "$(head -n 1 "$file")" =~ ^\#!.*python.*$ ]]; then
+		echo "[python] file detected"
+  	gist-paste -s -c -d "$file - added by [gist]" -f "$file" -t python "$file"
+		exit 0
+	fi
+
+	if [[ "$file" =~ .*\.rb$ ]]; then
+		echo "[ruby] file detected"
+  	gist-paste -s -c -d "$file - added by [gist]" -f "$file" -t ruby "$file"
+		exit 0
+	fi
+
+	if [[ "$file" =~ .*rc$ ]]; then
+		echo "[rc] file detected"
+  	gist-paste -s -c -d "$file - added by [gist]" -f "$file" -t text "$file"
+		exit 0
+	fi
+
+	if [[ ! "$file" =~ ^.*\..*$ ]]; then
+		echo "Unsupported file-type, no dot found in filename, exiting..."
+		exit 0
+	fi
+
+}
+
+# set variables / arrays
+args=($@)
+numargs="${#args[@]}"
+files=()
+
+# check args
+case "$@" in
+	'')
+    usage
+	;;
+  *)
+		for arg in $@; do
+			if [[ -f "$arg" ]]; then
+				files+=($arg)
+			fi
+		done
+	;;
+esac
+
+# call gistit function for found files
+echo "Found the following readable files: ${files[@]}"
+for file in "${files[@]}"; do
+	echo "--- Creating gist for file: $file"
+	gistit "$file"
+	echo
+done
+
+
+

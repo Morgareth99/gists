@@ -1,0 +1,42 @@
+#!/bin/bash
+### Simple urxvt wrapper script to, uhm, start a terminal emulator.
+### GitHub: @netzverweigerer
+
+# Sanity!
+set -e
+set -x
+
+# Set inner terminal border size
+border=14
+
+# Background shading level (low value: opaque)
+shade=20
+
+# Font
+#font="Roboto Mono Medium for Powerline"
+#font="Source Code Pro for Powerline"
+#font="Hack"
+font="Hack"
+
+# We jse same font for "bold".
+boldfont="${font}"
+
+# Font size
+fontsize=14
+
+# Shell invocation command
+execute="/bin/bash"
+
+# Set foreground / background colors
+foreground="gray90"
+background="rgba:0000/0800/1200/c800"
+
+# Set cursor color
+cursor='#cc5322'
+
+# Finally, launch urxvt
+exec urxvt -b "${border}" -depth 32 -sh "${shade}" +sb -cr "${cursor}" -fg "${foreground}" -bg "${background}" -fn "xft:${font}:size=${fontsize}" -fb "xft:${boldfont}:size=${fontsize}" -e "${execute}"
+
+
+
+

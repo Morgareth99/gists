@@ -1,0 +1,3 @@
+#!/bin/bash
+
+openssl req -noout -modulus -in "$1" | openssl md5

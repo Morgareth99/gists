@@ -1,0 +1,28 @@
+#!/bin/bash
+
+arg1="$1"
+workspaces=(I II III IV V VI VII VIII IX X)
+
+case $arg1 in
+	[0-9])
+		b="$((arg1-1))"
+		bspc desktop -f "${workspaces[$b]}"
+	;;
+  n)
+		bspc desktop -f n
+	;;
+	p)
+	  bspc desktop -f p
+	;;
+	*)
+		echo "Error."
+	;;
+esac
+
+
+
+
+
+
+
+
